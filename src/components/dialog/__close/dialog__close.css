@@ -1,0 +1,12 @@
+.dialog__close {
+/*  margin-left: auto; */
+  position: absolute;
+  top: -36px;
+  right: -36px;
+
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  /* border: 2px double red; */
+}
+

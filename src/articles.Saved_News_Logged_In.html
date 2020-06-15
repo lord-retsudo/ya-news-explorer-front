@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="author" content="Maxim Tupikov">
+  <meta name="description" content="Диплом яндекс">
+  <title>Главная</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+</head>
+<body>
+  <header class="header">
+
+    <nav id="mainMenuDesktop">
+      <ul id="desktopMenu" class="header__desktop-menu nav header__desktop-menu_separator_dark">
+        <li class="logo logo_light nav__item nav__item_style_dark" id="logoMenuItem"><a href="index.html">NewsExplorer</a></li>
+        <li class="nav__item_pull-right nav__item nav__item_style_smoke" id="homeMenuItem"><a href="index.html">Главная</a></li>
+        <li class="nav__item_selected nav__item_style_smoke nav__item nav__item_style_dark" id="articlesMenuItem"><a href="#">Сохраненные статьи</a></li>
+        <span id="loginMenuItem" style="width:0px;height:0px;"></span>
+        <li id="logoutMenuItem" class="nav__item">
+          <button id="logoutButton" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_light">
+            <span name="icon-button-text">tester</span>
+            <i class="icon icon_size_24 icon_logout_black"></i>
+          </button>
+        </li>
+        <li id="menuToggleButton" class="header__mobile-toggle nav__item">
+          <button id="777" class="btn_brd_none icon_menu_black">
+            <i class="icon icon_size_24"></i>
+            <span name="icon-button-text"></span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+  <main>
+    <section class="articles-info">
+      <div class="articles-info__container">
+        <h6>Сохранённые статьи</h6>
+        <h2 id="welcome" class="text text_font-family_roboto-slab">tester, у вас 5 сохранённых статей</h2>
+        <h3 id="keyword" class="text text_font-family_roboto">По ключевым словам:
+          <span id="articleStat" class="text text_font-family_roboto text_weight_bold">Природа, Тайга и 2 другим</span>
+        </h3>
+      </div>
+    </section>
+
+    <section id="searchResult" class="search-result">
+      <div class="search-result__container">
+        <h3>Результаты поиска</h3>
+        <div id="cardsGrid">
+          <ul id="cards" class="search-result__grid">
+            <li id="000">
+              <div class="card card_grow card_dir_ver" id="111">
+                <span class="card__header">
+                  <i name="delete-btn" class="icon icon_card icon_size_40 icon_delete_normal"></i>
+                  <a name="keyword-label" class="tooltip" href="https://www.google.com/search?q=природа" target="_blank">природа</a>
+                </span>
+                <img src="./images/card1.png" alt="card1" id="222" class="search-result__card-image">
+                <div class="card__body search-result__card-body">
+                    <div class="search-result__card-created">
+                      2 августа, 2019
+                    </div>
+                    <h4 class="search-result__card-title">Национальное достояние – парки</h4>
+                    <p class="search-result__card-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                </div>
+                <div class="card__footer search-result__card-footer">
+                    <a href="https://lenta.ru" target="_blank" class="search-result__card-source">
+                        Lenta.ru
+                    </a>
+                </div>
+                
+              </div>
+            </li>
+            <li id="333">
+              <div class="card card_grow card_dir_ver" id="444">
+                <span class="card__header">
+                  <i name="delete-btn" class="icon icon_card icon_size_40 icon_delete_normal"></i>
+                  <a name="keyword-label" class="tooltip" href="https://www.google.com/search?q=природа" target="_blank" style="position: absolute; left: 24px; top: 24px;">Фотография</a>
+                </span>
+                <img src="./images/card2.jpg" alt="Лесные огоньки" id="442" class="search-result__card-image">
+                <div class="card__body search-result__card-body">
+                  <div class="search-result__card-created">
+                    2 августа, 2019
+                  </div>
+                  <h4 class="search-result__card-title">Лесные огоньки: история одной фотографии</h4>
+                  <p class="search-result__card-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
+                    из местных чудес природы.</p>
+                </div>
+                <div class="card__footer search-result__card-footer">
+                    <a href="https://medusa.io" target="_blank" class="search-result__card-source">
+                        Medusa
+                    </a>
+                </div>
+                
+              </div>
+            </li>
+            <li id="555">
+              <div class="card card_grow card_dir_ver" id="666">
+                <span class="card__header">
+                  <i name="delete-btn" class="icon icon_card icon_size_40 icon_delete_normal"></i>
+                  <a name="keyword-label" class="tooltip" href="https://www.google.com/search?q=природа" target="_blank">тайга</a>
+                </span>
+                <img src="./images/card3.jpg" alt="Первозданная тайга" id="662" class="search-result__card-image">
+                <div class="card__body search-result__card-body">
+                  <div class="search-result__card-created">
+                    2 августа, 2019
+                  </div>
+                  <h4 class="search-result__card-title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
+                  <p class="search-result__card-text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+                </div>
+                <div class="card__footer search-result__card-footer">
+                  <a href="https://ria.ru" target="_blank" class="search-result__card-source">
+                        RIA
+                  </a>
+                </div>
+                
+              </div>
+            </li>
+            <li id="888">
+              <div class="card card_grow card_dir_ver" id="118">
+                <span class="card__header">
+                  <i name="delete-btn" class="icon icon_card icon_size_40 icon_delete_normal"></i>
+                  <a name="keyword-label" class="tooltip" href="https://www.google.com/search?q=природа" target="_blank">Парки</a>
+                </span>
+                <img src="./images/card1.png" alt="card1" id="2228" class="search-result__card-image">
+                <div class="card__body search-result__card-body">
+                    <div class="search-result__card-created">
+                      2 августа, 2019
+                    </div>
+                    <h4 class="search-result__card-title">Национальное достояние – парки</h4>
+                    <p class="search-result__card-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                </div>
+                <div class="card__footer search-result__card-footer">
+                    <a href="https://lenta.ru" target="_blank" class="search-result__card-source">
+                        Lenta.ru
+                    </a>
+                </div>
+                
+              </div>
+            </li>
+            <li id="999">
+              <div class="card card_grow card_dir_ver" id="4449">
+                <span class="card__header">
+                  <i name="delete-btn" class="icon icon_card icon_size_40 icon_delete_normal"></i>
+                  <a name="keyword-label" class="tooltip" href="https://www.google.com/search?q=природа" target="_blank">природа</a>
+                </span>
+                <img src="./images/card2.jpg" alt="Лесные огоньки" id="4429" class="search-result__card-image">
+                <div class="card__body search-result__card-body">
+                  <div class="search-result__card-created">
+                    2 августа, 2019
+                  </div>
+                  <h4 class="search-result__card-title">Лесные огоньки: история одной фотографии</h4>
+                  <p class="search-result__card-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
+                    из местных чудес природы.</p>
+                </div>
+                <div class="card__footer search-result__card-footer">
+                    <a href="https://medusa.io" target="_blank" class="search-result__card-source">
+                        Medusa
+                    </a>
+                </div>
+                
+              </div>
+            </li>
+          </ul>
+        </div>
+    </section>
+  </main>
+
+
+<footer class="footer">
+    <nav class="nav footer__nav">
+      <a class="nav__item nav__item_style_smoke" href="https://praktikum.yandex.ru/">&copy 2020 Supersite, Powered by News API</a>
+    </nav>
+
+    <nav class="nav footer__nav">
+      <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
+      <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+    </nav>
+
+    <nav class="nav footer__social">
+      <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
+      <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
+    </nav>
+  </footer>
+
+</body>
+<script src="./index.js"></script>
+</html>
