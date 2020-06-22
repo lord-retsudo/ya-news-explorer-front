@@ -1,0 +1,30 @@
+.footer__container {   
+    display: flex;    
+    flex-direction: row;       
+   
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+    .footer__container {
+      margin-left: 16px; 
+      margin-right: 16px;
+    }
+    
+  }
+  
+@media (min-width: 769px) and (max-width: 1439px) {
+    .footer__container {
+      /* margin-right: 42px; */
+    }
+  }
+
+@media (max-width: 320px) {
+    .footer__container {        
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;   
+      margin-left: 16px; 
+      margin-right: 16px;      
+    }
+    
+}

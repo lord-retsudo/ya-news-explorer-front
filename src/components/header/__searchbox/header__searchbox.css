@@ -1,18 +1,21 @@
 .header__searchbox {
   max-width: 608px;
   margin-left: 0;
-  margin-right: auto;
-  margin-top: 64px;
+  margin-right: 0;
+  margin-top: 64px;  
+  margin-bottom: 80px;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   .header__searchbox {
-    max-width: 288px;
+    max-width: 452px;
     margin-top: 64px;
+    margin-top: 48px;
+    margin-bottom: 48px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1439px) {
+@media (min-width: 769px) and (max-width: 1439px) {
   .header__searchbox {
     max-width: 608px;
     margin-top: 64px;

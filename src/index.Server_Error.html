@@ -69,8 +69,10 @@
                   <input required id="signup_name" type="text" class="textfield textfield_size_s textfield_brd_b" minlength="4" maxlength="20" placeholder="Введите свое имя">
                   <span data-invalid-message="signup_name" class="form__invalid-message form__invalid-message_visibility_hidden">Имя должно быть [4-20] символов</span>
                 </li>     
-                <li>    
-                  <span data-invalid-message="signup_duplicate" class="form__invalid-message form__invalid-message_visibility_shown"><div class="text_center">Такой пользователь уже есть</div></span>                     
+                <li id="error-message">    
+                  <span data-invalid-message="signup_duplicate" class="form__invalid-message form__invalid-message_visibility_shown">
+                    <div class="text_center">Такой пользователь уже есть</div>
+                  </span>                     
                   <button type="submit" class="btn btn_brd_none btn_style_primary btn_size_s btn_rad_100 btn_size_full" enabled>Зарегистрироваться</button>
                 </li>
               </ul>
@@ -97,23 +99,53 @@
 
 
 <footer class="footer">
+  <div id="desktop_menu">
     <nav class="nav footer__nav">
-      <a class="nav__item nav__item_style_smoke" href="https://praktikum.yandex.ru/">&copy 2020 Supersite, Powered by News API</a>
+      <a class="nav__item nav__item_style_smoke"  id="copyright_desk" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
     </nav>
 
-    <nav class="nav footer__nav">
-      <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
-      <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
-    </nav>
 
-    <nav class="nav footer__social">
-      <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
-      <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
-    </nav>
-  </footer>
+    <div class="footer__container"> 
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
+        <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+      </nav>
 
+      <nav class="nav footer__social">
+        <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
+        <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
+      </nav>
+    </div> 
+  </div>
 
+  <div id="mobile_menu"> 
+      <div class="footer__container" id="links_main_mobile">
+        <nav class="nav footer__nav" id="main_mobile">
+          <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>           
+        </nav>      
+      
+        <nav class="nav footer__social" id="social_mobile">
+          <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
+          <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
+        </nav>
+      </div>
 
-</body>
+    
+    <div class="footer__container" id="links_mobile">
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+      </nav>     
+    </div>
+
+    <div class="footer__container"  id="copyright_mobile">
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_smoke" id="copyright_mob" href="https://praktikum.yandex.ru/">&copy 2020 Supersite, Powered by News API</a>
+      </nav>
+    </div>
+  </div>
+
+</footer>   
 <script src="./index.js"></script>
+</body>
+
 </html>

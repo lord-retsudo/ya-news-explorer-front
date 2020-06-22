@@ -14,18 +14,16 @@
   background-color: #1A1B22;
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 16px;
+  z-index: 1;
 }
 
 .header__mobile-menu > .nav__item {
   padding-bottom: 24px;
 }
-/*
-.header__mobile-menu > .nav__item:last-child {
-  width: 95%;
-}
-*/
-@media (min-width: 767px) {
+
+@media (min-width: 321px) {
   .header__mobile-menu.nav {
-    visibility: hidden;
+    visibility: hidden; 
+    /* display: none; */
   }
 }

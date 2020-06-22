@@ -6,17 +6,28 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 80px;
-  padding-bottom: 60px;
+  padding-bottom: 60px;  
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 321px) and (max-width: 768px) {
+  .about {
+    margin-top: 57px;
+    padding-bottom: 24px;
+  }
+
   .about .card {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1439px) {
+@media (min-width: 769px) and (max-width: 1439px) {
   .about .card {
     flex-direction: row;
+  }
+}
+
+@media (max-width: 320px) {
+  .about .card {
+    flex-direction: column;
   }
 }

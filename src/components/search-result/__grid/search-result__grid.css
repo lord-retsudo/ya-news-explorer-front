@@ -2,22 +2,32 @@
   display: grid;
   list-style-type: none;
   padding: 0;
-  grid-template-columns: 400px 400px 400px;
+  grid-template-columns: minmax(224px, 400px) minmax(224px, 400px) minmax(224px, 400px);
   grid-column-gap: 16px;
-  grid-row-gap: 32px;
+  grid-row-gap: 32px;  
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 321px) and (max-width: 768px) {
   .search-result__grid {
-    grid-template-columns: 288px;
-    grid-row-gap: 1px;
+    /* grid-template-columns: 288px; */
+    grid-template-columns: 224px 224px 224px;
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1439px) {
+@media (min-width: 769px) and (max-width: 1439px) {
   .search-result__grid {
-    grid-template-columns: 224px 224px 224px;
-    grid-column-gap: 8px;
-    grid-row-gap: 24px;
+    grid-template-columns: minmax(224px, 400px) minmax(224px, 400px) minmax(224px, 400px);     
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .search-result__grid {
+    grid-template-columns: minmax(224px, 288px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
   }
 }

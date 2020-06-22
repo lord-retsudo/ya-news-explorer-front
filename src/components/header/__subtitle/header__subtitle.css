@@ -9,15 +9,16 @@
   max-width: 500px;     
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   .header__subtitle {
-    max-width: 250px;
+    max-width: 452px;
     font-size: 18px;
     line-height: 24px;
+    margin: 16px 0 auto 0;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1439px) {
+@media (min-width: 769px) and (max-width: 1439px) {
   .header__subtitle{
     max-width: 390px;
     font-size: 18px;

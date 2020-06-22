@@ -8,8 +8,7 @@
   <title>Главная</title>   
   <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">  
   <!-- <link rel="stylesheet" type="text/css" href="./styles.css">  -->     
-  <!-- <link rel="icon" type="image/png" href="images/favicon.png" />  -->
-  <link rel="icon" href="<%=require('./images/favicon.png')%>" type="image/png">      
+  <link rel="icon" type="image/png" href="images/favicon.png" />         
 </head>
 <body>
   <header class="header header_bg">
@@ -58,31 +57,64 @@
 
 
 <footer class="footer">
+  
+  <div id="desktop_menu">
     <nav class="nav footer__nav">
-      <a class="nav__item nav__item_style_smoke" href="https://praktikum.yandex.ru/">&copy 2020 Supersite, Powered by News API</a>
+      <a class="nav__item nav__item_style_smoke"  id="copyright_desk" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
     </nav>
 
-    <nav class="nav footer__nav">
-      <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
-      <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
-    </nav>
 
-    <nav class="nav footer__social">
-      <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
-      <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
-    </nav>
-  </footer>
+    <div class="footer__container"> 
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
+        <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+      </nav>
+
+      <nav class="nav footer__social">
+        <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
+        <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
+      </nav>
+    </div> 
+  </div>
+
+  <div id="mobile_menu"> 
+      <div class="footer__container" id="links_main_mobile">
+        <nav class="nav footer__nav" id="main_mobile">
+          <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>           
+        </nav>      
+      
+        <nav class="nav footer__social" id="social_mobile">
+          <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
+          <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
+        </nav>
+      </div>
+
+    
+    <div class="footer__container" id="links_mobile">
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+      </nav>     
+    </div>
+
+    <div class="footer__container"  id="copyright_mobile">
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_smoke" id="copyright_mob" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
+      </nav>
+    </div>
+  </div>
+
+
+</footer>                                                         `
 
   <!-- Menu Logged-In -->
-  <nav id="mainMenuDesktop">
-    <ul id="desktopMenu" class="header__desktop-menu nav header__desktop-menu_separator_light">
-      <li class="logo logo_light nav__item nav__item_style_light" id="logoMenuItem"><a href="index.html">NewsExplorer</a></li>
-      <li class="nav__item_selected nav__item_pull-right nav__item nav__item_style_light" id="homeMenuItem"><a href="#">Главная</a></li>
-      <li class="nav__item_style_smoke nav__item" id="articlesMenuItem"><a href="articles.html">Сохраненные статьи</a></li>
-      <span id="loginMenuItem" style="width:0px;height:0px;"></span>
-      <li id="logoutMenuItem" class="nav__item">
-        <button id="logoutButton" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_snow">
-          <span name="icon-button-text">tester</span><i class="icon icon_size_24 icon_logout_white"></i>
+  <nav id="mainMenuDesktop1">
+    <ul id="desktopMenu1" class="header__desktop-menu nav header__desktop-menu_separator_light">
+      <li class="logo logo_light nav__item nav__item_style_light" id="logoMenuItem1"><a href="index.html">NewsExplorer</a></li>
+      <li class="nav__item_selected nav__item_pull-right nav__item nav__item_style_light" id="homeMenuItem1"><a href="#">Главная</a></li>
+      <li class="nav__item_style_smoke nav__item" id="articlesMenuItem1"><a href="articles.html">Сохраненные статьи</a></li>      
+      <li id="logoutMenuItem1" class="nav__item">
+        <button id="logoutButton1" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_snow">
+          <span >tester</span><i class="icon icon_size_24 icon_logout_white"></i>
         </button>
       </li>
     </ul>
@@ -185,12 +217,12 @@
       <h3>Результаты поиска</h3>
       <div id="cardsGrid">
         <ul id="cards" class="search-result__grid">
-          <li id="000">
-            <div class="card card_grow card_dir_ver" id="111">
+          <li>
+            <div class="card card_grow card_dir_ver" id="card1">
               <span class="card__header">
-                <i name="save-btn" class="icon icon_card icon_size_40 icon_save_normal"></i>
+                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
               </span>
-              <img src="<%=require('./images/card1.png').default%>" alt="card1" id="222" class="search-result__card-image">
+              <img src="<%=require('./images/card1.png').default%>" alt="card1" class="search-result__card-image">
               <div class="card__body search-result__card-body">
                   <div class="search-result__card-created">
                     2 августа, 2019
@@ -206,12 +238,12 @@
               
             </div>
           </li>
-          <li id="333">
-            <div class="card card_grow card_dir_ver" id="444">
+          <li>
+            <div class="card card_grow card_dir_ver" id="card2">
               <span class="card__header">
-                <i name="save-btn" class="icon icon_card icon_size_40 icon_save_marked"></i>
+                <i class="icon icon_card icon_size_40 icon_save_marked"></i>
               </span>
-              <img src="<%=require('./images/card2.jpg').default%>" alt="Лесные огоньки" id="442" class="search-result__card-image">
+              <img src="<%=require('./images/card2.jpg').default%>" alt="Лесные огоньки" class="search-result__card-image">
               <div class="card__body search-result__card-body">
                 <div class="search-result__card-created">
                   2 августа, 2019
@@ -228,12 +260,12 @@
               
             </div>
           </li>
-          <li id="555">
-            <div class="card card_grow card_dir_ver" id="666">
+          <li>
+            <div class="card card_grow card_dir_ver" id="card3">
               <span class="card__header">
-                <i name="save-btn" class="icon icon_card icon_size_40 icon_save_normal"></i>
+                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
               </span>
-              <img src="<%=require('./images/card3.jpg').default%>" alt="Первозданная тайга" id="662" class="search-result__card-image">
+              <img src="<%=require('./images/card3.jpg').default%>" alt="Первозданная тайга" class="search-result__card-image">
               <div class="card__body search-result__card-body">
                 <div class="search-result__card-created">
                   2 августа, 2019
@@ -250,21 +282,22 @@
           </li>
         </ul>
       </div>
-    <button id="showMoreButton" class="btn btn_style_light btn_size_m btn_rad_100 btn_brd_none search-result__btn-more">Показать еще</button></div>
+    </div>
+    <button class="btn btn_style_light btn_size_m btn_rad_100 btn_brd_none search-result__btn-more">Показать еще</button>    
   </section>
 
   <!-- Search Result Not Logged-In example Section -->
-  <section id="searchResult" class="search-result">
+  <section id="searchResult1" class="search-result">
     <div class="search-result__container">
       <h3>Результаты поиска</h3>
-      <div id="cardsGrid">
-        <ul id="cards" class="search-result__grid">
-          <li id="000">
-            <div class="card card_grow card_dir_ver" id="111">
+      <div id="cardsGrid1">
+        <ul class="search-result__grid">
+          <li>
+            <div class="card card_grow card_dir_ver" id="card4">
               <span class="card__header">
-                <i name="save-btn" class="icon icon_card icon_size_40 icon_save_normal"></i>
+                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
               </span>
-              <img src="<%=require('./images/card1.png').default%>" alt="card1" id="222" class="search-result__card-image">
+              <img src="<%=require('./images/card1.png').default%>" alt="card1" class="search-result__card-image">
               <div class="card__body search-result__card-body">
                   <div class="search-result__card-created">
                     2 августа, 2019
@@ -280,12 +313,12 @@
               
             </div>
           </li>
-          <li id="333">
-            <div class="card card_grow card_dir_ver" id="444">
+          <li>
+            <div class="card card_grow card_dir_ver" id="card5">
               <span class="card__header">
-                <i name="save-btn" class="icon icon_card icon_size_40 icon_save_normal"></i>
+                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
               </span>
-              <img src="<%=require('./images/card2.jpg').default%>" alt="Лесные огоньки" id="442" class="search-result__card-image">
+              <img src="<%=require('./images/card2.jpg').default%>" alt="Лесные огоньки" class="search-result__card-image">
               <div class="card__body search-result__card-body">
                 <div class="search-result__card-created">
                   2 августа, 2019
@@ -301,12 +334,12 @@
               </div>                
             </div>
           </li>
-          <li id="555">
-            <div class="card card_grow card_dir_ver" id="666">
+          <li>
+            <div class="card card_grow card_dir_ver" id="card6">
               <span class="card__header">
-                <i name="save-btn" class="icon icon_card icon_size_40 icon_save_normal"></i>
+                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
               </span>
-              <img src="<%=require('./images/card3.jpg').default%>" alt="Первозданная тайга" id="662" class="search-result__card-image">
+              <img src="<%=require('./images/card3.jpg').default%>" alt="Первозданная тайга" class="search-result__card-image">
               <div class="card__body search-result__card-body">
                 <div class="search-result__card-created">
                   2 августа, 2019
@@ -340,8 +373,6 @@
     </div>
   </div>
 
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
-<!-- <script src="./index.js"></script> -->
-<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
-
 </html>

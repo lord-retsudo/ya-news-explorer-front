@@ -52,12 +52,12 @@
         <h3>Результаты поиска</h3>
         <div id="cardsGrid">
           <ul id="cards" class="search-result__grid">
-            <li id="000">
-              <div class="card card_grow card_dir_ver" id="111">
+            <li>
+              <div class="card card_grow card_dir_ver">
                 <span class="card__header">
                   <i name="save-btn" class="icon icon_card icon_size_40 icon_save_normal"></i>
                 </span>
-                <img src="./images/card1.png" alt="card1" id="222" class="search-result__card-image">
+                <img src="./images/card1.png" alt="card1" class="search-result__card-image">
                 <div class="card__body search-result__card-body">
                     <div class="search-result__card-created">
                       2 августа, 2019
@@ -73,12 +73,12 @@
                 
               </div>
             </li>
-            <li id="333">
-              <div class="card card_grow card_dir_ver" id="444">
+            <li>
+              <div class="card card_grow card_dir_ver">
                 <span class="card__header">
                   <i name="save-btn" class="icon icon_card icon_size_40 icon_save_marked"></i>
                 </span>
-                <img src="./images/card2.jpg" alt="Лесные огоньки" id="442" class="search-result__card-image">
+                <img src="./images/card2.jpg" alt="Лесные огоньки" class="search-result__card-image">
                 <div class="card__body search-result__card-body">
                   <div class="search-result__card-created">
                     2 августа, 2019
@@ -95,12 +95,12 @@
                 
               </div>
             </li>
-            <li id="555">
-              <div class="card card_grow card_dir_ver" id="666">
+            <li>
+              <div class="card card_grow card_dir_ver">
                 <span class="card__header">
                   <i name="save-btn" class="icon icon_card icon_size_40 icon_save_normal"></i>
                 </span>
-                <img src="./images/card3.jpg" alt="Первозданная тайга" id="662" class="search-result__card-image">
+                <img src="./images/card3.jpg" alt="Первозданная тайга" class="search-result__card-image">
                 <div class="card__body search-result__card-body">
                   <div class="search-result__card-created">
                     2 августа, 2019
@@ -117,6 +117,7 @@
             </li>
           </ul>
         </div>
+      </div>
       <button id="showMoreButton" class="btn btn_style_light btn_size_m btn_rad_100 btn_brd_none search-result__btn-more">Показать еще</button></div>
     </section>
 
@@ -134,20 +135,53 @@
 
 
 <footer class="footer">
+  
+  <div id="desktop_menu">
     <nav class="nav footer__nav">
-      <a class="nav__item nav__item_style_smoke" href="https://praktikum.yandex.ru/">&copy 2020 Supersite, Powered by News API</a>
+      <a class="nav__item nav__item_style_smoke"  id="copyright_desk" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
     </nav>
 
-    <nav class="nav footer__nav">
-      <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
-      <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
-    </nav>
 
-    <nav class="nav footer__social">
-      <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
-      <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
-    </nav>
-  </footer>
+    <div class="footer__container"> 
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
+        <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+      </nav>
+
+      <nav class="nav footer__social">
+        <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
+        <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
+      </nav>
+    </div> 
+  </div>
+
+  <div id="mobile_menu"> 
+      <div class="footer__container" id="links_main_mobile">
+        <nav class="nav footer__nav" id="main_mobile">
+          <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>           
+        </nav>      
+      
+        <nav class="nav footer__social" id="social_mobile">
+          <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
+          <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
+        </nav>
+      </div>
+
+    
+    <div class="footer__container" id="links_mobile">
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+      </nav>     
+    </div>
+
+    <div class="footer__container"  id="copyright_mobile">
+      <nav class="nav footer__nav">
+        <a class="nav__item nav__item_style_smoke" id="copyright_mob" href="https://praktikum.yandex.ru/">&copy 2020 Supersite, Powered by News API</a>
+      </nav>
+    </div>
+  </div>
+
+</footer>   
 
   <!-- Sign-in dialog -->
   <div id="dialog_signin" class="dialog-signin" data-dialog>
@@ -240,6 +274,7 @@
     </div>
   </div>
 
+  <script src="./index.js"></script>
 </body>
-<script src="./index.js"></script>
+
 </html>
