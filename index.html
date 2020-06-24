@@ -5,22 +5,29 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="author" content="Maxim Tupikov">
   <meta name="description" content="Диплом яндекс">
-  <title>Главная</title>   
-  <link rel="stylesheet" type="text/css" href="style/main.669be1c94c63f24aba04.css">  
-  <!-- <link rel="stylesheet" type="text/css" href="./styles.css">  -->     
-  <link rel="icon" type="image/png" href="images/favicon.png" />         
+  <title>Главная</title>
+  <link rel="stylesheet" type="text/css" href="style/main.b008cd94e0e3fdedb036.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./styles.css">  -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
 </head>
 <body>
   <header class="header header_bg">
+
     <nav id="mainMenuDesktop">
       <ul id="desktopMenu" class="header__desktop-menu nav header__desktop-menu_separator_light">
         <li class="logo logo_light nav__item nav__item_style_light" id="logoMenuItem"><a href="index.html">NewsExplorer</a></li>
         <li class="nav__item_selected nav__item_pull-right nav__item nav__item_style_light" id="homeMenuItem"><a href="#">Главная</a></li>
         <li id="loginMenuItem" class="nav__item">
-          <button id="authButton" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_snow">Авторизоваться</button></li>
+          <button id="authButton" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_snow">Авторизоваться</button>
+        </li>
+        <li id="menuToggleButton" class="header__mobile-toggle nav__item">
+          <button class="btn_brd_none icon_menu_white">
+            <i class="icon icon_size_24"></i>
+          </button>
+        </li>
       </ul>
     </nav>
-    
+
     <div class="header__content">
       <h1 class="header__title">
         Что в мире творится?
@@ -43,75 +50,165 @@
   </header>
 
   <main>
-    <section class="about">
-      <div class="card"> 
-        <img src="./images/avatar.png" alt="user avatar" class="about__avatar">
-        <div class="about__text card__body">
-          <h2>Об авторе</h2>
-          <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
-          <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
-        </div>
+
+  <!-- No search Result Section -->
+  <section id="noresult" class="noresult">
+    <i class="icon icon_size_96 icon_noresult"></i>
+    <h2 class="noresult__title">Ничего не найдено</h2>
+    <p class="noresult__subtitle">К сожалению по вашему запросу ничего не найдено.</p>
+  </section>
+
+  <!-- Loading Spinner Section -->
+  <section id="loading" class="loading">
+    <div class="loading__spinner loading__spinner_dual-ring"></div>
+    <h6 class="loading__label">Идет поиск новостей...</h6>
+  </section>
+
+  <!-- Search Result Logged-In example Section -->
+  <section id="searchResult" class="search-result">
+    <div class="search-result__container">
+      <h3>Результаты поиска</h3>
+      <div id="cardsGrid">
+        <ul id="cards" class="search-result__grid">
+          <li>
+            <div class="card card_grow card_dir_ver" id="card1">
+              <span class="card__header">
+                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
+              </span>
+              <img src="./images/card1.png" alt="card1" class="search-result__card-image">
+              <div class="card__body search-result__card-body">
+                  <div class="search-result__card-created">
+                    2 августа, 2019
+                  </div>
+                  <h4 class="search-result__card-title">Национальное достояние – парки</h4>
+                  <p class="search-result__card-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+              </div>
+              <div class="card__footer search-result__card-footer">
+                  <a href="https://lenta.ru" target="_blank" class="search-result__card-source">
+                      Lenta.ru
+                  </a>
+              </div>
+
+            </div>
+          </li>
+          <li>
+            <div class="card card_grow card_dir_ver" id="card2">
+              <span class="card__header">
+                <i class="icon icon_card icon_size_40 icon_save_marked"></i>
+              </span>
+              <img src="./images/card2.jpg" alt="Лесные огоньки" class="search-result__card-image">
+              <div class="card__body search-result__card-body">
+                <div class="search-result__card-created">
+                  2 августа, 2019
+                </div>
+                <h4 class="search-result__card-title">Лесные огоньки: история одной фотографии</h4>
+                <p class="search-result__card-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
+                  из местных чудес природы.</p>
+              </div>
+              <div class="card__footer search-result__card-footer">
+                  <a href="https://medusa.io" target="_blank" class="search-result__card-source">
+                      Medusa
+                  </a>
+              </div>
+
+            </div>
+          </li>
+          <li>
+            <div class="card card_grow card_dir_ver" id="card3">
+              <span class="card__header">
+                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
+              </span>
+              <img src="./images/card3.jpg" alt="Первозданная тайга" class="search-result__card-image">
+              <div class="card__body search-result__card-body">
+                <div class="search-result__card-created">
+                  2 августа, 2019
+                </div>
+                <h4 class="search-result__card-title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
+                <p class="search-result__card-text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+              </div>
+              <div class="card__footer search-result__card-footer">
+                <a href="https://ria.ru" target="_blank" class="search-result__card-source">
+                      RIA
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-    </section>
+      <button class="btn btn_style_light btn_size_m btn_rad_100 btn_brd_none search-result__btn-more">Показать еще</button>
+    </div>
+  </section>
+
+
+  <section class="about">
+    <div class="card">
+      <img src="./images/avatar.png" alt="user avatar" class="about__avatar">
+      <div class="about__text card__body">
+        <h2>Об авторе</h2>
+        <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+        <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+      </div>
+    </div>
+  </section>
+
   </main>
 
 
-<footer class="footer">
-  
-  <div id="desktop_menu">
-    <nav class="nav footer__nav">
-      <a class="nav__item nav__item_style_smoke"  id="copyright_desk" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
-    </nav>
+  <footer class="footer">
 
-
-    <div class="footer__container"> 
+    <div id="desktop_menu">
       <nav class="nav footer__nav">
-        <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
-        <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+        <a class="nav__item nav__item_style_smoke"  id="copyright_desk" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
       </nav>
 
-      <nav class="nav footer__social">
-        <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
-        <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
-      </nav>
-    </div> 
-  </div>
 
-  <div id="mobile_menu"> 
-      <div class="footer__container" id="links_main_mobile">
-        <nav class="nav footer__nav" id="main_mobile">
-          <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>           
-        </nav>      
-      
-        <nav class="nav footer__social" id="social_mobile">
+      <div class="footer__container">
+        <nav class="nav footer__nav">
+          <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
+          <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+        </nav>
+
+        <nav class="nav footer__social">
           <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
           <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
         </nav>
       </div>
-
-    
-    <div class="footer__container" id="links_mobile">
-      <nav class="nav footer__nav">
-        <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
-      </nav>     
     </div>
 
-    <div class="footer__container"  id="copyright_mobile">
-      <nav class="nav footer__nav">
-        <a class="nav__item nav__item_style_smoke" id="copyright_mob" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
-      </nav>
+    <div id="mobile_menu">
+        <div class="footer__container" id="links_main_mobile">
+          <nav class="nav footer__nav" id="main_mobile">
+            <a class="nav__item nav__item_style_dark" href="index.html">Главная</a>
+          </nav>
+
+          <nav class="nav footer__social" id="social_mobile">
+            <a class="nav__item nav__item_style_dark" href="https://github.com/"><i class="icon icon_size_24 icon_social_github"></i></a>
+            <a class="nav__item nav__item_style_dark" href="https://www.facebook.com/"><i class="icon icon_size_24 icon_social_fb"></i></a>
+          </nav>
+        </div>
+
+
+      <div class="footer__container" id="links_mobile">
+        <nav class="nav footer__nav">
+          <a class="nav__item nav__item_style_dark" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+        </nav>
+      </div>
+
+      <div class="footer__container"  id="copyright_mobile">
+        <nav class="nav footer__nav">
+          <a class="nav__item nav__item_style_smoke" id="copyright_mob" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
+        </nav>
+      </div>
     </div>
-  </div>
 
 
-</footer>                                                         `
-
-  <!-- Menu Logged-In -->
+  </footer>
+  <!-- Menu Logged-In
   <nav id="mainMenuDesktop1">
     <ul id="desktopMenu1" class="header__desktop-menu nav header__desktop-menu_separator_light">
       <li class="logo logo_light nav__item nav__item_style_light" id="logoMenuItem1"><a href="index.html">NewsExplorer</a></li>
       <li class="nav__item_selected nav__item_pull-right nav__item nav__item_style_light" id="homeMenuItem1"><a href="#">Главная</a></li>
-      <li class="nav__item_style_smoke nav__item" id="articlesMenuItem1"><a href="articles.html">Сохраненные статьи</a></li>      
+      <li class="nav__item_style_smoke nav__item" id="articlesMenuItem1"><a href="articles.html">Сохраненные статьи</a></li>
       <li id="logoutMenuItem1" class="nav__item">
         <button id="logoutButton1" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_snow">
           <span >tester</span><i class="icon icon_size_24 icon_logout_white"></i>
@@ -119,6 +216,7 @@
       </li>
     </ul>
   </nav>
+-->
 
  <!-- Sign-in dialog -->
  <div id="dialog_signin" class="dialog-signin" data-dialog>
@@ -197,167 +295,6 @@
       </div>
     </div>
   </div>
-
-  <!-- No search Result Section -->
-  <section id="noresult" class="noresult">
-    <i class="icon icon_size_96 icon_noresult"></i>
-    <h2 class="noresult__title">Ничего не найдено</h2>
-    <p class="noresult__subtitle">К сожалению по вашему запросу ничего не найдено.</p>
-  </section>
-
-  <!-- Loading Spinner Section -->
-  <section id="loading" class="loading">
-    <div class="loading__spinner loading__spinner_dual-ring"></div>
-    <h6 class="loading__label">Идет поиск новостей...</h6>
-  </section>
-
-  <!-- Search Result Logged-In example Section -->
-  <section id="searchResult" class="search-result">
-    <div class="search-result__container">
-      <h3>Результаты поиска</h3>
-      <div id="cardsGrid">
-        <ul id="cards" class="search-result__grid">
-          <li>
-            <div class="card card_grow card_dir_ver" id="card1">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
-              </span>
-              <img src="./images/card1.png" alt="card1" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                  <div class="search-result__card-created">
-                    2 августа, 2019
-                  </div>
-                  <h4 class="search-result__card-title">Национальное достояние – парки</h4>
-                  <p class="search-result__card-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                  <a href="https://lenta.ru" target="_blank" class="search-result__card-source">
-                      Lenta.ru
-                  </a>
-              </div>
-              
-            </div>
-          </li>
-          <li>
-            <div class="card card_grow card_dir_ver" id="card2">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_marked"></i>
-              </span>
-              <img src="./images/card2.jpg" alt="Лесные огоньки" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                <div class="search-result__card-created">
-                  2 августа, 2019
-                </div>
-                <h4 class="search-result__card-title">Лесные огоньки: история одной фотографии</h4>
-                <p class="search-result__card-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                  из местных чудес природы.</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                  <a href="https://medusa.io" target="_blank" class="search-result__card-source">
-                      Medusa
-                  </a>
-              </div>
-              
-            </div>
-          </li>
-          <li>
-            <div class="card card_grow card_dir_ver" id="card3">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
-              </span>
-              <img src="./images/card3.jpg" alt="Первозданная тайга" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                <div class="search-result__card-created">
-                  2 августа, 2019
-                </div>
-                <h4 class="search-result__card-title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-                <p class="search-result__card-text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                <a href="https://ria.ru" target="_blank" class="search-result__card-source">
-                      RIA
-                </a>
-              </div>                
-            </div>
-          </li>
-        </ul>
-      </div>    
-      <button class="btn btn_style_light btn_size_m btn_rad_100 btn_brd_none search-result__btn-more">Показать еще</button>   
-    </div> 
-  </section>
-
-  <!-- Search Result Not Logged-In example Section -->
-  <section id="searchResult1" class="search-result">
-    <div class="search-result__container">
-      <h3>Результаты поиска</h3>
-      <div id="cardsGrid1">
-        <ul class="search-result__grid">
-          <li>
-            <div class="card card_grow card_dir_ver" id="card4">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
-              </span>
-              <img src="./images/card1.png" alt="card1" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                  <div class="search-result__card-created">
-                    2 августа, 2019
-                  </div>
-                  <h4 class="search-result__card-title">Национальное достояние – парки</h4>
-                  <p class="search-result__card-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                  <a href="https://lenta.ru" target="_blank" class="search-result__card-source">
-                      Lenta.ru
-                  </a>
-              </div>
-              
-            </div>
-          </li>
-          <li>
-            <div class="card card_grow card_dir_ver" id="card5">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
-              </span>
-              <img src="./images/card2.jpg" alt="Лесные огоньки" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                <div class="search-result__card-created">
-                  2 августа, 2019
-                </div>
-                <h4 class="search-result__card-title">Лесные огоньки: история одной фотографии</h4>
-                <p class="search-result__card-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                  из местных чудес природы.</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                  <a href="https://medusa.io" target="_blank" class="search-result__card-source">
-                      Medusa
-                  </a>
-              </div>                
-            </div>
-          </li>
-          <li>
-            <div class="card card_grow card_dir_ver" id="card6">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
-              </span>
-              <img src="./images/card3.jpg" alt="Первозданная тайга" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                <div class="search-result__card-created">
-                  2 августа, 2019
-                </div>
-                <h4 class="search-result__card-title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-                <p class="search-result__card-text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                <a href="https://ria.ru" target="_blank" class="search-result__card-source">
-                      RIA
-                </a>
-              </div>                
-            </div>
-          </li>
-        </ul>
-      </div>
-    <button id="showMoreButton" class="btn btn_style_light btn_size_m btn_rad_100 btn_brd_none search-result__btn-more">Показать еще</button></div>
-  </section>
 
 
   <div id="dialog_error" class="dialog-error" data-dialog>
