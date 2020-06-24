@@ -31,8 +31,6 @@ npm run build (for prod)
 
 articles.Saved_News_Logged_In.html - сохраненные статьи пользователя.
 
-index.Form_Client_Error.html - ошибки ввода данных в попапе логина.
-
 index.Login_Form.html - попап логина. 
 
 index.Main_Logged_In.html - главная страница после логина пользователя. 

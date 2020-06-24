@@ -1,7 +1,7 @@
 @import './__button/search__button.css';
 @import './__textbox/search__textbox.css';
 
-.search {  
+.search {
   display: flex;
   flex-direction: row;
   width: 90%;
@@ -20,8 +20,9 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
   .search {
     flex-direction: column;
   }
 }
+

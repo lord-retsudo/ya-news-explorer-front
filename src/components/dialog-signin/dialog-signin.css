@@ -18,3 +18,11 @@
   text-decoration: none;
   color: #2F71E5;
 }
+
+
+@media (max-width: 550px) {
+  .dialog-signin .dialog__content {
+    max-width: 320px;
+  }
+
+}

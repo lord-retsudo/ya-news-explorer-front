@@ -21,9 +21,9 @@
   padding-bottom: 24px;
 }
 
-@media (min-width: 321px) {
+@media (min-width: 551px) {
   .header__mobile-menu.nav {
-    visibility: hidden; 
+    visibility: hidden;
     /* display: none; */
   }
 }

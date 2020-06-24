@@ -5,10 +5,10 @@
 
   width: 40px;
   height: 40px;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 440px) {
   .dialog__close {
     top: -42px;
     right: 10px;
