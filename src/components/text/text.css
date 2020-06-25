@@ -1,0 +1,9 @@
+@import '_center/text_center.css';
+@import '_left/text_left.css';
+@import '_weight/text_weight.css';
+@import '_font-family/text_font-family.css';
+
+.text {
+  font-style: normal;
+  color: #000000;
+}

@@ -1,0 +1,95 @@
+.search-result__grid {
+  display: grid;
+  list-style-type: none;
+  padding: 0;
+  grid-template-columns: minmax(224px, 400px) minmax(224px, 400px) minmax(224px, 400px);
+  grid-column-gap: 16px;
+  grid-row-gap: 32px;
+  margin: 0 auto 0 auto;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .search-result__grid {
+    grid-template-columns: minmax(224px, 400px) minmax(224px, 400px);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 768px) {
+  .search-result__grid {
+    grid-template-columns: minmax(200px, 224px) minmax(200px, 224px) minmax(200px, 224px);
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+  }
+}
+
+
+@media (min-width: 551px) and (max-width: 700px) {
+  .search-result__grid {
+    grid-template-columns: minmax(224px, 288px) minmax(224px, 288px) ;
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 550px) {
+  .search-result__grid {
+    grid-template-columns: minmax(288px, 500px);
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .search-result__grid {
+    grid-template-columns: minmax(224px, 288px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+}
+
+
+/*
+.search-result__grid {
+  position: relative;
+  display: grid;
+  grid-gap: 16px 16px;
+  grid-template-columns: repeat(auto-fill,400px);
+  flex-direction: row;
+  justify-content: center;
+  margin: 64px 104px 0 104px;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width : 1100px) {
+  .search-result__grid {
+    margin: 48px 70px 0 70px;
+  }
+}
+
+@media screen and (max-width : 992px) {
+  .search-result__grid {
+    margin: 48px 50px 0 50px;
+    grid-gap: 12px 12px;
+    grid-template-columns: repeat(auto-fill,350px);
+  }
+}
+
+@media screen and (max-width : 820px) {
+  .search-result__grid {
+    margin: 32px 40px 0 40px;
+    grid-gap: 8px 8px;
+    grid-template-columns: repeat(auto-fill,224px);
+  }
+}
+
+@media screen and (max-width : 576px) {
+  .search-result__grid {
+    margin: 24px auto 0 auto;
+    grid-gap: 10px 10px;
+    grid-template-columns: repeat(auto-fill,90%);
+  }
+}
+
+*/

@@ -1,0 +1,60 @@
+@import './__nav/footer__nav.css';
+@import './__social/footer__social.css';
+@import './__container/footer__container.css';
+
+/*
+#copyright_mobile {
+  display: none;
+}
+
+#links_mobile {
+  display: none;
+}
+
+#links_main_mobile {
+  display: none;
+}
+*/
+
+#mobile_menu {
+  display: none;
+}
+
+#desktop_menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+  height: 80px;
+  margin: 0;
+  max-width: 1232px;
+}
+
+.footer {
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  height: 80px;
+  margin: 0 auto;
+  max-width: 1232px;
+}
+
+@media (max-width: 550px) {
+  .footer {
+    height: 180px;
+
+  }
+
+  #mobile_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+  }
+
+  #desktop_menu {
+    display: none;
+  }
+
+
+}

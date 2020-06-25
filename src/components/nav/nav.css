@@ -1,0 +1,20 @@
+@import '__item/nav__item.css';
+@import '_vert/nav_vert.css';
+@import '_visible/nav_visible.css';
+@import '_position/nav_position.css';
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;   
+}
+
+@media (max-width: 320px) {
+ /* #main_mobile {    
+    max-width: 100px;
+  }
+  */
+}

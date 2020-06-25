@@ -1,0 +1,57 @@
+@import url(./vendor/normalize.css);
+@import url(./fonts.css);
+@import url(./components/about/about.css);
+@import url(./components/text/text.css);
+@import url(./components/textfield/textfield.css);
+@import url(./components/search/search.css);
+@import url(./components/nav/nav.css);
+@import url(./components/icon/icon.css);
+@import url(./components/form/form.css);
+@import url(./components/dialog/dialog.css);
+@import url(./components/btn/btn.css);
+@import url(./components/spinner/spinner.css);
+@import url(./components/dropdown/dropdown.css);
+@import url(./components/logo/logo.css);
+@import url(./components/card/card.css);
+@import url(./components/footer/footer.css);
+@import url(./components/search-result/search-result.css);
+@import url(./components/loading/loading.css);
+@import url(./components/noresult/noresult.css);
+@import url(./components/flex-container/flex-container.css);
+@import url(./components/articles-info/articles-info.css);
+@import url(./components/ycard/ycard.css);
+@import url(./components/dialog-signin/dialog-signin.css);
+@import url(./components/dialog-signup/dialog-signup.css);
+@import url(./components/dialog-error/dialog-error.css);
+@import url(./components/dialog-success/dialog-success.css);
+@import url(./components/tooltip/tooltip.css);
+@import url(./components/header/header.css);
+
+body {
+  background-color: var(--primary-bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+.header_bg {
+  /* background-image: url('../../../images/georgia.png'); */                         
+  background-image: url('./images/georgia.png'); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+:root {
+  --primary-color: #1A1B22;
+  --primary-bg-color: #FFFFFF;
+
+  --secondary-color: #FFFFFF;
+  --secondary-bg-color: #F5F6F7;
+
+  --primary-font-family: Roboto;
+  --primary-font-style: normal;
+  --primary-font-weight: normal;
+  --primary-font-size: 18px;
+  --primary-line-height: 24px;
+}
+

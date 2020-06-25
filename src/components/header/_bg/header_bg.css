@@ -1,0 +1,7 @@
+.header_bg {
+  /* background-image: url(<%=require('../../../images/georgia.png')%>); */                         
+  background-image: url('../../../images/georgia.png'); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

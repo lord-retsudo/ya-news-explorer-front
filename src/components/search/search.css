@@ -1,0 +1,28 @@
+@import './__button/search__button.css';
+@import './__textbox/search__textbox.css';
+
+.search {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .search {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1439px) {
+  .search {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 550px) {
+  .search {
+    flex-direction: column;
+  }
+}
+

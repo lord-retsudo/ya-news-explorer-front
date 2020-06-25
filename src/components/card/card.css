@@ -1,0 +1,10 @@
+@import './__body/card__body.css';
+@import './__footer/card__footer.css';
+@import './_dir/card_dir.css';
+@import './_grow/card_grow.css';
+@import './__footer/card__footer.css';
+@import './__header/card__header.css';
+
+.card {
+  display: flex;
+}
