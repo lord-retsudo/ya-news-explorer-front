@@ -23,10 +23,10 @@ module.exports = {
       use: { loader: 'babel-loader' },
       exclude: /node_modules/,
     },
-    { // настройка image-webpack-loader
+    { 
       test: /\.(png|jpg|gif|ico|svg)$/,
       use: [
-        'file-loader?name=./images/[name].[ext]', // папка в дист для изображений
+        'file-loader?name=./images/[name].[ext]', 
         {
           loader: 'image-webpack-loader',
           options: {},
@@ -47,7 +47,7 @@ module.exports = {
         'postcss-loader',
       ],
     },
-    { // шрифты
+    { 
       test: /\.(eot|ttf|woff|woff2)$/,
       loader: 'file-loader?name=./vendor/[name].[ext]',
     },

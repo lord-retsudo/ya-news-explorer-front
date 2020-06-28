@@ -203,32 +203,46 @@
 
 
   </footer>
-  
+  <!-- Menu Logged-In
+  <nav id="mainMenuDesktop1">
+    <ul id="desktopMenu1" class="header__desktop-menu nav header__desktop-menu_separator_light">
+      <li class="logo logo_light nav__item nav__item_style_light" id="logoMenuItem1"><a href="index.html">NewsExplorer</a></li>
+      <li class="nav__item_selected nav__item_pull-right nav__item nav__item_style_light" id="homeMenuItem1"><a href="#">Главная</a></li>
+      <li class="nav__item_style_smoke nav__item" id="articlesMenuItem1"><a href="articles.html">Сохраненные статьи</a></li>
+      <li id="logoutMenuItem1" class="nav__item">
+        <button id="logoutButton1" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_snow">
+          <span >tester</span><i class="icon icon_size_24 icon_logout_white"></i>
+        </button>
+      </li>
+    </ul>
+  </nav>
+-->
+
  <!-- Sign-in dialog -->
  <div id="dialog_signin" class="dialog-signin" data-dialog>
-  <div id="dialog_signin_block" class="dialog dialog_style_white dialog_align_center">
+  <div class="dialog dialog_style_white dialog_align_center" style="display: block">
     <div class="dialog__content dialog__content_border_full">
       <div class="dialog__header">
         <h3 class="dialog__header-title">Вход</h3>
-        <i id="signin_close" class="dialog__close icon icon_size_24 icon_close_white"></i>
+        <i class="dialog__close icon icon_size_24 icon_close_white"></i>
       </div>
       <div class="dialog__body">
-        <form name="signin" class="form">
+        <form name="signinForm" class="form" onsubmit="">
           <ul>
             <li>
               <label for="signin_email">Email</label>
               <input required id="signin_email" type="email" class="textfield textfield_size_s textfield_brd_b" placeholder="Введите почту">
-              <span id="error-signin_email" data-invalid-message="signin_email" class="form__invalid-message form__invalid-message_visibility_shown">Неправильный формат email</span>
+              <span data-invalid-message="signin_email" class="form__invalid-message form__invalid-message_visibility_shown">Неправильный формат email</span>
             </li>
 
             <li>
               <label for="signin_password">Пароль</label>
               <input required id="signin_password" type="password" class="textfield textfield_size_s textfield_brd_b" minlength="7" maxlength="20" placeholder="Введите пароль" autocomplete="off">
-              <span id="error-signin_password" data-invalid-message="signin_password" class="form__invalid-message form__invalid-message_visibility_shown">Пароль должен быть [7-20] символов</span>
+              <span data-invalid-message="signin_password" class="form__invalid-message form__invalid-message_visibility_shown">Пароль должен быть [7-20] символов</span>
             </li>
 
             <li>
-              <button id="submit-signin" type="submit" class="btn btn_brd_none btn_style_primary btn_size_s btn_rad_100 btn_size_full" disabled>Войти</button>
+              <button type="submit" class="btn btn_brd_none btn_style_primary btn_size_s btn_rad_100 btn_size_full" disabled>Войти</button>
             </li>
           </ul>
         </form>
@@ -242,7 +256,7 @@
 
   <!-- Sign-up dialog -->
   <div id="dialog_signup" class="dialog-signup" data-dialog>
-    <div class="dialog dialog_style_white dialog_align_center">
+    <div class="dialog dialog_style_white dialog_align_center" style="display: block">
       <div class="dialog__content dialog__content_border_full">
         <div class="dialog__header">
           <h3 class="dialog__header-title">Регистрация</h3>
@@ -254,23 +268,23 @@
               <li>
                 <label for="signup_email">Email</label>
                 <input required id="signup_email" type="email" class="textfield textfield_size_s textfield_brd_b" placeholder="Введите почту">
-                <span id="error-signup_email" data-invalid-message="signup_email" class="form__invalid-message form__invalid-message_visibility_hidden">Неправильный формат email</span>
+                <span data-invalid-message="signup_email" class="form__invalid-message form__invalid-message_visibility_hidden">Неправильный формат email</span>
               </li>
 
               <li>
                 <label for="signup_password">Пароль</label>
                 <input required id="signup_password" type="password" class="textfield textfield_size_s textfield_brd_b" minlength="7" maxlength="20" placeholder="Введите пароль" autocomplete="off">
-                <span id="error-signup_password" data-invalid-message="signup_password" class="form__invalid-message form__invalid-message_visibility_hidden">Пароль должен быть [7-20] символов</span>
+                <span data-invalid-message="signup_password" class="form__invalid-message form__invalid-message_visibility_hidden">Пароль должен быть [7-20] символов</span>
               </li>
 
               <li>
                 <label for="signup_name">Имя</label>
                 <input required id="signup_name" type="text" class="textfield textfield_size_s textfield_brd_b" minlength="4" maxlength="20" placeholder="Введите свое имя">
-                <span id="error-signup_name"data-invalid-message="signup_name" class="form__invalid-message form__invalid-message_visibility_hidden">Имя должно быть [4-20] символов</span>
+                <span data-invalid-message="signup_name" class="form__invalid-message form__invalid-message_visibility_hidden">Имя должно быть [4-20] символов</span>
               </li>
 
               <li>
-                <button id="submit-signup" type="submit" class="btn btn_brd_none btn_style_primary btn_size_s btn_rad_100 btn_size_full" disabled>Зарегистрироваться</button>
+                <button type="submit" class="btn btn_brd_none btn_style_primary btn_size_s btn_rad_100 btn_size_full" disabled>Зарегистрироваться</button>
               </li>
             </ul>
           </form>
@@ -298,5 +312,4 @@
 
   <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
-  <!-- <script src="./index.js"></script>  -->
 </html>
