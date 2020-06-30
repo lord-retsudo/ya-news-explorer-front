@@ -51,8 +51,8 @@ export default class FormValidator {
 
         this.form.addEventListener('input', function(event) {
 
-          const id = event.target.id;          
-          const errorElement = document.querySelector(`#error-${id}`);          
+          const id = event.target.id;
+          const errorElement = document.querySelector(`#error-${id}`);
           const submitButton = document.querySelector(`#submit-${this.form.name}`);
 
           // console.log(submitButton);

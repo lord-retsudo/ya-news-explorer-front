@@ -1,70 +1,79 @@
 import './styles.css';
 
-import Api from './js/api.js'
+// import Api from './js/api/main-api.js'
+/*
 import Card from "./js/card.js"
 import PopupImage from './js/popupimage.js'
 import CardList from "./js/cardlist.js"
-import FormValidator from './js/formvalidator.js'
+
 import UserInfo from './js/userinfo.js'
 import Popup from './js/popup.js'
 import PopupProfile from './js/popupprofile.js'
+*/
 
-import PopupSignIn from './js/popup-signin.js'
+import MainApiClient from './js/api/main-api';
+import Config from './js/config';
+import HttpClient from './js/http-client/http-client';
+import HttpRequestError from './js/http-client/http-request-error';
+import User from './js/user/user';
+
+import FormValidator from './js/popup/formvalidator.js'
+import PopupSignIn from './js/popup/popup-signin.js'
+import PopupSignUp from './js/popup/popup-signup.js'
+import PopupSuccess from './js/popup/popup-success.js'
 
 (function () {
 
   const root = document.querySelector('.root');
 //  const placesList = document.querySelector('.places-list');
 
-/*
-  const popupParams = {
-    popup: root.querySelector('.popup'),
-    openPopupButton: document.querySelector('.user-info__button'),
-    savePopupButton: document.querySelector('.popup__button'),
-    formCard: document.forms.new,
-    closePopupButton: document.querySelector('.popup__close'),
-    errorDesc: document.querySelector("#error-name"),
-    errorLink: document.querySelector("#error-link")
-  }
-
-  const popupImageParams = {
-    popupImage: document.querySelector('.popup__image'),
-    closePopupImageButton: document.querySelector('.popup__close_image'),
-    imageBig: document.querySelector('.popup__big-image'),
-  }
-
-  const popupProfileParams = {
-    popupProfile: root.querySelector('.popup__profile'),
-    formProfile: document.forms.profile,
-    openPopupProfileButton: document.querySelector('.user-info__button-edit'),
-    closePopupProfileButton: document.querySelector('.popup__close_profile'),
-    savePopupProfileButton: document.querySelector('.popup__profile-button'),
-    errorName: document.querySelector("#error-profile-name"),
-    errorAbout: document.querySelector("#error-about")
-  }
-
-  const userInfoParams = {
-    userName: document.querySelector('.user-info__name'),
-    userAbout: document.querySelector('.user-info__job'),
-    userAvatar: document.querySelector('.user-info__photo'),
-    userInfoForm: document.forms.profile
-  }
-*/
   const popupSignInParams = {
     popupSignIn: document.querySelector('#dialog_signin_block'),
     formSignIn: document.forms.signin,
     openSignInButton: document.querySelector('#authButton'),
     closeSignInButton: document.querySelector('#signin_close'),
     submitSignInButton: document.querySelector('#submit-signin'),
+    switchSignUpButton: document.querySelector('#signupButton'),
     errorEmail: document.querySelector("#error-signin_email"),
-    errorPassword: document.querySelector("#error-signin_password")
+    errorPassword: document.querySelector("#error-signin_password"),
+    popupSwitch: document.querySelector('#dialog_signup_block'),
+    messageError: document.querySelector('#error-message-signin')
   }
 
-/*
-  const popupImage = new PopupImage(popupImageParams);
-  popupImage.setListeners();
-*/
-  const api = new Api({
+  const popupSignUpParams = {
+    popupSignUp: document.querySelector('#dialog_signup_block'),
+    popupSuccess: document.querySelector('#dialog_success_block'),
+    formSignUp: document.forms.signup,
+    openSignUpButton: document.querySelector('#signupButton'),
+    closeSignUpButton: document.querySelector('#signup_close'),
+    submitSignUpButton: document.querySelector('#submit-signup'),
+    switchSignInButton: document.querySelector('#signinButton'),
+    errorEmail: document.querySelector("#error-signup_email"),
+    errorPassword: document.querySelector("#error-signup_password"),
+    errorName: document.querySelector("#error-signup_name"),
+    popupSwitch: document.querySelector('#dialog_signin_block'),
+    messageError: document.querySelector('#error-message-signup')
+  }
+
+  const popupSuccessParams = {
+    popupSuccess: document.querySelector('#dialog_success_block'),
+    closeSuccessButton: document.querySelector('#success_close'),
+    switchSignInButton: document.querySelector('#successButton'),
+    popupSwitch: document.querySelector('#dialog_signin_block')
+  }
+
+ console.log(Config.BACKEND_API_HOST);
+
+const mainApi = new MainApiClient({
+  host: Config.BACKEND_API_HOST,
+  httpClient: HttpClient.create(),
+});
+
+// console.log(mainApi.getUserInfo('sdhgdhnrtynrty'));
+
+//  const mainApi = null;
+  /*
+  new MainApi({
     baseUrl: 'https://praktikum.tk/cohort8',
     headers: {
       // А чем content-type провинился?)))
@@ -72,6 +81,8 @@ import PopupSignIn from './js/popup-signin.js'
       //'Content-Type': 'application/json'
     }
   });
+*/
+
 /*
   const objectUserInfo = new UserInfo(userInfoParams);
 
@@ -104,10 +115,18 @@ import PopupSignIn from './js/popup-signin.js'
   const popupProfile = new PopupProfile(popupProfileValidator, objectUserInfo, popupProfileParams, api);
   popupProfile.setListeners();
 */
-  
+
   const popupSignInValidator = new FormValidator(document.forms.signin);
 
-  const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, api);
+  const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi);
   popupSignIn.setListeners();
+
+  const popupSignUpValidator = new FormValidator(document.forms.signup);
+
+  const popupSignUp = new PopupSignUp(popupSignUpValidator, popupSignUpParams, mainApi);
+  popupSignUp.setListeners();
+
+  const popupSuccess = new PopupSuccess(popupSuccessParams);
+  popupSuccess.setListeners();
 
 })();

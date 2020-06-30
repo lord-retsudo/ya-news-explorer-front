@@ -203,8 +203,8 @@
 
 
   </footer>
-  
- <!-- Sign-in dialog -->
+
+ <!-- Sign-in popup -->
  <div id="dialog_signin" class="dialog-signin" data-dialog>
   <div id="dialog_signin_block" class="dialog dialog_style_white dialog_align_center">
     <div class="dialog__content dialog__content_border_full">
@@ -217,72 +217,78 @@
           <ul>
             <li>
               <label for="signin_email">Email</label>
-              <input required id="signin_email" type="email" class="textfield textfield_size_s textfield_brd_b" placeholder="Введите почту">
+              <input required id="signin_email" name="email" type="email" class="textfield textfield_size_s textfield_brd_b" placeholder="Введите почту">
               <span id="error-signin_email" data-invalid-message="signin_email" class="form__invalid-message form__invalid-message_visibility_shown">Неправильный формат email</span>
             </li>
 
             <li>
               <label for="signin_password">Пароль</label>
-              <input required id="signin_password" type="password" class="textfield textfield_size_s textfield_brd_b" minlength="7" maxlength="20" placeholder="Введите пароль" autocomplete="off">
+              <input required id="signin_password" name="password" type="password" class="textfield textfield_size_s textfield_brd_b" minlength="7" maxlength="20" placeholder="Введите пароль" autocomplete="off">
               <span id="error-signin_password" data-invalid-message="signin_password" class="form__invalid-message form__invalid-message_visibility_shown">Пароль должен быть [7-20] символов</span>
             </li>
 
-            <li>
+            <li class="text_center">
+              <span id="error-message-signin" class="form__invalid-message form__invalid-message_visibility_hidden">
+                <div class="text_center">Ошибка авторизации</div>
+              </span>
               <button id="submit-signin" type="submit" class="btn btn_brd_none btn_style_primary btn_size_s btn_rad_100 btn_size_full" disabled>Войти</button>
             </li>
           </ul>
         </form>
       </div>
       <div class="dialog__footer">
-        <span class="text text_font-family_inter text_weight_normal text_center">или <a href="#" onclick="">Зарегистрироваться</a></span>
+        <span class="text text_font-family_inter text_weight_normal text_center">или <a id="signupButton" href="#">Зарегистрироваться</a></span>
       </div>
     </div>
   </div>
 </div>
 
-  <!-- Sign-up dialog -->
+  <!-- Sign-up popup -->
   <div id="dialog_signup" class="dialog-signup" data-dialog>
-    <div class="dialog dialog_style_white dialog_align_center">
+    <div id="dialog_signup_block" class="dialog dialog_style_white dialog_align_center">
       <div class="dialog__content dialog__content_border_full">
         <div class="dialog__header">
           <h3 class="dialog__header-title">Регистрация</h3>
-          <i class="dialog__close icon icon_size_24 icon_close_white"></i>
+          <i id="signup_close" class="dialog__close icon icon_size_24 icon_close_white"></i>
         </div>
         <div class="dialog__body">
-          <form name="signupForm" class="form" onsubmit="">
+          <form name="signup" class="form">
             <ul>
               <li>
                 <label for="signup_email">Email</label>
-                <input required id="signup_email" type="email" class="textfield textfield_size_s textfield_brd_b" placeholder="Введите почту">
+                <input required id="signup_email" name="email" type="email" class="textfield textfield_size_s textfield_brd_b" placeholder="Введите почту">
                 <span id="error-signup_email" data-invalid-message="signup_email" class="form__invalid-message form__invalid-message_visibility_hidden">Неправильный формат email</span>
               </li>
 
               <li>
                 <label for="signup_password">Пароль</label>
-                <input required id="signup_password" type="password" class="textfield textfield_size_s textfield_brd_b" minlength="7" maxlength="20" placeholder="Введите пароль" autocomplete="off">
+                <input required id="signup_password" name="password" type="password" class="textfield textfield_size_s textfield_brd_b" minlength="7" maxlength="20" placeholder="Введите пароль" autocomplete="off">
                 <span id="error-signup_password" data-invalid-message="signup_password" class="form__invalid-message form__invalid-message_visibility_hidden">Пароль должен быть [7-20] символов</span>
               </li>
 
               <li>
                 <label for="signup_name">Имя</label>
-                <input required id="signup_name" type="text" class="textfield textfield_size_s textfield_brd_b" minlength="4" maxlength="20" placeholder="Введите свое имя">
+                <input required id="signup_name" name="names" type="text" class="textfield textfield_size_s textfield_brd_b" minlength="4" maxlength="20" placeholder="Введите свое имя">
                 <span id="error-signup_name"data-invalid-message="signup_name" class="form__invalid-message form__invalid-message_visibility_hidden">Имя должно быть [4-20] символов</span>
               </li>
 
-              <li>
+              <li class="text_center">
+                <span id="error-message-signup" class="form__invalid-message form__invalid-message_visibility_hidden">
+                  <div class="text_center">Ошибка регистрации</div>
+                </span>
                 <button id="submit-signup" type="submit" class="btn btn_brd_none btn_style_primary btn_size_s btn_rad_100 btn_size_full" disabled>Зарегистрироваться</button>
               </li>
             </ul>
           </form>
         </div>
         <div class="dialog__footer">
-          <span class="text text_font-family_inter text_weight_normal text_center">или <a href="#" onclick="">Войти</a></span>
+          <span class="text text_font-family_inter text_weight_normal text_center">или <a id="signinButton" href="#">Войти</a></span>
         </div>
       </div>
     </div>
   </div>
 
-
+<!-- Error popup -->
   <div id="dialog_error" class="dialog-error" data-dialog>
     <div class="dialog dialog_style_white dialog_align_center">
       <div class="dialog__content dialog__content_border_full">
@@ -295,6 +301,26 @@
       </div>
     </div>
   </div>
+
+<!-- Sign-up Success popup -->
+  <div id="dialog_success" class="dialog-success" data-dialog>
+
+    <div id="dialog_success_block" class="dialog dialog_style_white dialog_align_center">
+
+      <div class="dialog__content dialog__content_border_full">
+        <i id="success_close" class="dialog__close icon icon_size_24 icon_close_white"></i>
+        <div class="dialog__header">
+          <h3 class="dialog__header-title">Пользователь успешно зарегистрирован!</h3>
+
+        </div>
+        <div class="dialog__body"></div>
+        <div class="dialog__footer">
+          <span class="text text_font-family_inter text_weight_normal text_left"><a id="successButton" href="#">Выполнить вход</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
