@@ -12,7 +12,9 @@ import PopupProfile from './js/popupprofile.js'
 */
 
 import MainApiClient from './js/api/main-api';
+import NewsApiClient from './js/api/news-api';
 import Config from './js/config';
+import Menu from './js/menu';
 import HttpClient from './js/http-client/http-client';
 import HttpRequestError from './js/http-client/http-request-error';
 import User from './js/user/user';
@@ -62,12 +64,115 @@ import PopupSuccess from './js/popup/popup-success.js'
     popupSwitch: document.querySelector('#dialog_signin_block')
   }
 
- console.log(Config.BACKEND_API_HOST);
+// console.log(Config.BACKEND_API_HOST);
 
 const mainApi = new MainApiClient({
   host: Config.BACKEND_API_HOST,
   httpClient: HttpClient.create(),
 });
+
+const newsApi = NewsApiClient.create({
+  apiKey: Config.NEWS_API_TOKEN,
+  language: Config.NEWS_API_LANGUAGE,
+  httpClient: HttpClient.create(),
+});
+
+const user = new User();
+
+const menu = new Menu(user);
+
+function searchNews(text) {
+  const searchText = (text || '').trim();
+
+/*
+  if (searchText.length === 0) {
+    Dialog.show('dialog_error', Config.ERROR_TXT_NO_BLANK_ALLOWED);
+    return;
+  }
+*/
+  menu.disableNewsSearchButton();
+
+  /*
+  const cards = Component.get('cards');
+  cards.removeAll();
+*/
+
+
+  menu.showLoadingSection();
+  menu.hideSearchResultSection();
+  menu.hideNoResultSection();
+
+  newsApi.search(searchText).then((response) => {
+    if (response.status === NewsApiClient.RESULT_STATUS_OK) {
+      menu.hideLoadingSection();
+
+      if (response.totalResults === 0) {
+        menu.showNoResultSection();
+      } else {
+        menu.showSearchResultSection();
+      }
+
+      console.log(response);
+      /*
+      cards.Store.setRecords(response, (article) => Record
+        .create(
+          cards.Store.RecordDefinition,
+          { ...article, ...{ keyword: text } },
+          UuidGenerator.generate(),
+        ));
+
+      cards.refresh();
+      */
+    }
+
+    menu.enableNewsSearchButton();
+  },  () => {
+    // Dialog.show('dialog_error', Config.ERROR_TXT_REQUEST_NOT_COMPLETED);
+    // Element.wrap(Component.get('newsSearchButton').HtmlElement).enable();
+  });
+}
+
+//document.getElementById('newsSearchText').getValue
+document.getElementById('newsSearchButton').addEventListener('click', function () {
+  searchNews(document.getElementById('newsSearchText').value);
+});
+
+menu.enableNewsSearchButton();
+
+/**
+ * Search button
+
+Button.create({
+  id: 'newsSearchButton',
+  container: '.search__button',
+  text: 'Искать',
+  classList: ['btn', 'btn_style_primary', 'btn_size_m', 'btn_rad_100', 'btn_brd_none'],
+  listeners: {
+    click: () => {
+      searchNews(Component.get('newsSearchText').getValue());
+    },
+  },
+});
+
+*/
+
+/**
+ * Search text
+
+TextField.create({
+  id: 'newsSearchText',
+  container: '.search__textbox',
+  placeholder: 'Введите тему новости',
+  classList: ['textfield', 'textfield_size_m', 'textfield_brd_none'],
+  listeners: {
+    keypress: (event) => {
+      if (event.domEvent.keyCode === 13) {
+        searchNews(event.component.getValue());
+      }
+    },
+  },
+});
+*/
 
 // console.log(mainApi.getUserInfo('sdhgdhnrtynrty'));
 
@@ -118,7 +223,7 @@ const mainApi = new MainApiClient({
 
   const popupSignInValidator = new FormValidator(document.forms.signin);
 
-  const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi);
+  const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi, user, menu);
   popupSignIn.setListeners();
 
   const popupSignUpValidator = new FormValidator(document.forms.signup);

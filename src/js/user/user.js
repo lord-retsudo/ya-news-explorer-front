@@ -99,29 +99,29 @@ export default class User {
       });
   }
 */
-  static logout() {
+  logout() {
     window.localStorage.removeItem('user.token');
     window.localStorage.removeItem('user.name');
     window.localStorage.removeItem('user.email');
     // notify(User.EVENT_USER_LOGOUT);
   }
 
-  static login({ name, email, token }) {
+  login(name, email, token) {
     window.localStorage.setItem('user.token', token);
     window.localStorage.setItem('user.name', name);
     window.localStorage.setItem('user.email', email);
     // notify(User.EVENT_USER_SIGNIN, { name, email, token });
   }
 
-  static getName() {
+  getName() {
     return window.localStorage.getItem('user.name');
   }
 
-  static getEmail() {
+  getEmail() {
     return window.localStorage.getItem('user.email');
   }
 
-  static getToken() {
+  getToken() {
     return window.localStorage.getItem('user.token');
   }
 }

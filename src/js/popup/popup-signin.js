@@ -1,5 +1,5 @@
 export default class PopupSignIn {
-  constructor(validator, popupParams, api) {
+  constructor(validator, popupParams, api, user, menu) {
 
     this.popup = popupParams.popupSignIn;
     this.formPopup = popupParams.formSignIn;
@@ -14,7 +14,8 @@ export default class PopupSignIn {
     this.validator = validator;
     this.validator.setEventListeners(true);
     this.api = api;
-
+    this.user = user;
+    this.menu = menu;
     // console.log(this.api.getUserInfo('sdhgdhnrtynrty'));
 
   }
@@ -50,15 +51,18 @@ export default class PopupSignIn {
 
       this.api.signin(this.formPopup.elements.email.value, this.formPopup.elements.password.value)
         .then((response) => {
-          api.getUserInfo(response.token).then((userInfo) => {
-            User.login({ ...userInfo, token: response.token });
+          this.api.getUserInfo(response.token).then((userInfo) => {
+            this.user.login(userInfo.data.name, userInfo.data.email, response.token);
             this.formPopup.reset();
             this.close();
+            this.menu.switchToLoggedMenu(this.user.getName());
 
-            console.log(User.getToken());
+            // console.log(this.user.getToken());
           });
         })
         .catch((error) => {
+
+          console.log(error);
 
           this.message.classList.remove('form__invalid-message_visibility_hidden');
           this.message.classList.add('form__invalid-message_visibility_shown');

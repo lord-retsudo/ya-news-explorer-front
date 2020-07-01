@@ -12,7 +12,7 @@ export default class MainApiClient {
     this._httpClient
       .setBaseUrl(host)
       .setResponseFormat(HttpClient.RESPONSE_JSON)
-      .setMode(HttpRequest.MODE_NO_CORS)
+      .setMode(HttpRequest.MODE_CORS)
       .setCache(HttpRequest.CACHE_NO_CACHE)
       .setHeaders({
         'Content-Type': 'application/json',
@@ -23,14 +23,14 @@ export default class MainApiClient {
 
   signup(name, email, password) {
     return this._httpClient.post('/signup', {
-      body: {
-        "email": email,
-        "password": password,
-        "name": name
-      },
-    //  JSON.stringify({
-    //    name, email, password,
-    //  }),
+      body:   JSON.stringify({
+        name, email, password,
+      }),
+      // {
+      //  "email": email,
+      //  "password": password,
+      //  "name": name
+      //},
     });
 }
 

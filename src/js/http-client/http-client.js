@@ -14,8 +14,6 @@ export default class HttpClient {
     this.setCredentials(credentials || HttpRequest.CREDENTIALS_SAME_ORIGIN);
     this.setResponseFormat(responseFormat);
     this._throwError = throwError || true;
-
-    // console.log('HTTP Client create!');
   }
 
   static get RESPONSE_JSON() {
@@ -225,25 +223,13 @@ export default class HttpClient {
     });
 
     try {
-      // console.log(body);
-
       const response = await fetch(request);
-      /*
-      const response = await fetch(reqUrl, {
-        method: HttpRequest.filterOptionMethod(method),
-        body,
-        headers: reqHeaders,
-        mode: HttpRequest.filterOptionMode(reqMode),
-        cache: HttpRequest.filterOptionCache(reqCache),
-        redirect: HttpRequest.filterOptionRedirect(reqRedirect),
-        credentials: HttpRequest.filterOptionCredentials(reqCredentials),
-      });
-*/
+
+      console.log(response, response.ok);
+
       if (this._throwError === true && !response.ok) {
         throw new HttpRequestError(request, response);
       }
-
-      console.log(response.json());
 
       if (response.ok) {
         switch (reqResponseFormat) {

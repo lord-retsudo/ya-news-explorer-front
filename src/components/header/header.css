@@ -9,7 +9,7 @@
 
 .header {
   display: block;
-  padding-bottom: 0px;  
+  padding-bottom: 0px;
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
@@ -22,4 +22,12 @@
   .header {
     padding-bottom: 0px;
   }
+}
+
+#desktopMenuNotLogged {
+  display: flex;
+}
+
+#desktopMenuLogged {
+  display: none;
 }

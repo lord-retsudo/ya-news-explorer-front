@@ -1,7 +1,7 @@
 export default class Config {
   static get BACKEND_API_HOST() {
 //    return 'http://breakingnews-explorer.ml';
-      return 'http://localhost:3000';
+      return 'http://localhost:3000/api';
   }
 
   static get NEWS_API_TOKEN() {
