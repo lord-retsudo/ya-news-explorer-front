@@ -18,11 +18,15 @@ import Menu from './js/menu';
 import HttpClient from './js/http-client/http-client';
 import HttpRequestError from './js/http-client/http-request-error';
 import User from './js/user/user';
+import DateConverter from './js/util/date-converter';
+import UuidGenerator from './js/util/uuid-generator';
 
 import FormValidator from './js/popup/formvalidator.js'
 import PopupSignIn from './js/popup/popup-signin.js'
 import PopupSignUp from './js/popup/popup-signup.js'
 import PopupSuccess from './js/popup/popup-success.js'
+import Card from "./js/card.js"
+import CardList from './js/card-list';
 
 (function () {
 
@@ -81,6 +85,12 @@ const user = new User();
 
 const menu = new Menu(user);
 
+const cardsContainer = document.getElementById('cards');
+
+const cardsList = new CardList(cardsContainer);
+
+let newsCards = [];
+
 function searchNews(text) {
   const searchText = (text || '').trim();
 
@@ -92,11 +102,10 @@ function searchNews(text) {
 */
   menu.disableNewsSearchButton();
 
-  /*
-  const cards = Component.get('cards');
-  cards.removeAll();
-*/
 
+  while(cardsContainer.firstChild){
+    cardsContainer.removeChild(cardsContainer.firstChild);
+  }
 
   menu.showLoadingSection();
   menu.hideSearchResultSection();
@@ -113,6 +122,24 @@ function searchNews(text) {
       }
 
       console.log(response);
+
+        newsCards = response.articles.map((article) => {
+          return {
+            articleId: UuidGenerator.generate(),
+            keyword: searchText,
+            title: article.title,
+            text: article.description,
+            date: DateConverter.formatDate(article.publishedAt),
+            source: article.source.name,
+            link: article.url,
+            image: article.urlToImage,
+          }
+        });
+
+        console.log(newsCards);
+
+        cardsList.render(newsCards);
+
       /*
       cards.Store.setRecords(response, (article) => Record
         .create(

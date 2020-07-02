@@ -1,27 +1,29 @@
 import Card from './card.js';
 
 export default class CardList extends Card {
-    constructor (container, popupImage) {
+    constructor (container) {
         super();
-        this.container = container;       
-        this.popupImage = popupImage;        
+        this.container = container;
     }
 
-    addCard (card){
+    addCard (cardHtml){
 
+      this.container.insertAdjacentHTML('beforeEnd', cardHtml);
+      /*
         this.container.appendChild(card).addEventListener('click', function(event){
 
             if (event.target.classList.contains('place-card__like-icon')) this.like(event);
             else if (event.target.className === 'place-card__delete-icon') this.remove(event, this.container);
             else if (event.target.className === 'place-card__image') this.popupImage.open(event.target);
         }.bind(this));
+      */
     }
 
-    render (initialCards){      
+    render (newsCards){
 
-        initialCards.forEach(function(item){      
-            this.addCard(this.create(item.name, item.link));
-          }.bind(this));
+      newsCards.forEach((article) => {
+            this.addCard(this.create(article));
+          });
     }
 }
 
