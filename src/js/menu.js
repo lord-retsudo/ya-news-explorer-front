@@ -1,8 +1,13 @@
+import User from './user/user';
+
 export default class Menu {
 
+  /*
   constructor(user) {
     this.user = user;
   }
+  */
+
   /*
     static showDesktopMenuNotLogged () {
       document.getElementById('desktopMenuNotLogged').style.display="flex";
@@ -22,7 +27,7 @@ export default class Menu {
 */
     static logout() {
       this.switchToNotLoggedMenu();
-      this.user.logout();
+      User.logout();
     }
 
     switchToLoggedMenu (username) {
@@ -71,6 +76,14 @@ export default class Menu {
 
     hideNoResultSection () {
       document.getElementById('noresult').style.display = "none";
+    }
+
+    showMoreButton () {
+      document.getElementById('moreButton').style.display = "flex";
+    }
+
+    hideMoreButton () {
+      document.getElementById('moreButton').style.display = "none";
     }
 
 /*

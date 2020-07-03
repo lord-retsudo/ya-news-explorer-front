@@ -1,5 +1,7 @@
+import User from '../user/user';
+
 export default class PopupSignIn {
-  constructor(validator, popupParams, api, user, menu) {
+  constructor(validator, popupParams, api, menu) {
 
     this.popup = popupParams.popupSignIn;
     this.formPopup = popupParams.formSignIn;
@@ -14,7 +16,7 @@ export default class PopupSignIn {
     this.validator = validator;
     this.validator.setEventListeners(true);
     this.api = api;
-    this.user = user;
+    // this.user = user;
     this.menu = menu;
     // console.log(this.api.getUserInfo('sdhgdhnrtynrty'));
 
@@ -52,10 +54,10 @@ export default class PopupSignIn {
       this.api.signin(this.formPopup.elements.email.value, this.formPopup.elements.password.value)
         .then((response) => {
           this.api.getUserInfo(response.token).then((userInfo) => {
-            this.user.login(userInfo.data.name, userInfo.data.email, response.token);
+            User.login(userInfo.data.name, userInfo.data.email, response.token);
             this.formPopup.reset();
             this.close();
-            this.menu.switchToLoggedMenu(this.user.getName());
+            this.menu.switchToLoggedMenu(User.getName());
 
             // console.log(this.user.getToken());
           });

@@ -81,15 +81,19 @@ const newsApi = NewsApiClient.create({
   httpClient: HttpClient.create(),
 });
 
-const user = new User();
+// const user = new User();
 
-const menu = new Menu(user);
+const menu = new Menu();
 
 const cardsContainer = document.getElementById('cards');
 
 const cardsList = new CardList(cardsContainer);
 
+const article = new Card(mainApi);
+
 let newsCards = [];
+
+let counter = 0;
 
 function searchNews(text) {
   const searchText = (text || '').trim();
@@ -101,7 +105,7 @@ function searchNews(text) {
   }
 */
   menu.disableNewsSearchButton();
-
+  // newsCards = [];
 
   while(cardsContainer.firstChild){
     cardsContainer.removeChild(cardsContainer.firstChild);
@@ -138,7 +142,16 @@ function searchNews(text) {
 
         console.log(newsCards);
 
-        cardsList.render(newsCards);
+        counter = 0;
+
+        const partCards = newsCards.slice(counter, 3);
+
+        if (newsCards.length > 3) {
+          menu.showMoreButton();
+        }
+
+        cardsList.render(partCards);
+        counter = 3;
 
       /*
       cards.Store.setRecords(response, (article) => Record
@@ -154,14 +167,78 @@ function searchNews(text) {
 
     menu.enableNewsSearchButton();
   },  () => {
+
+    console.log('search error!');
     // Dialog.show('dialog_error', Config.ERROR_TXT_REQUEST_NOT_COMPLETED);
     // Element.wrap(Component.get('newsSearchButton').HtmlElement).enable();
   });
 }
 
+
 //document.getElementById('newsSearchText').getValue
 document.getElementById('newsSearchButton').addEventListener('click', function () {
   searchNews(document.getElementById('newsSearchText').value);
+});
+
+document.getElementById('moreButton').addEventListener('click', function () {
+
+  // console.log(newsCards);
+
+  const newCounter = counter + 3;
+
+  const partCards = newsCards.slice(counter, newCounter);
+
+  if (newsCards.length - counter < 3) menu.hideMoreButton();
+
+  cardsList.render(partCards);
+  counter = newCounter;
+
+});
+
+document.getElementById('cards').addEventListener('click', function () {
+
+  switch (event.target.className) {
+    case 'icon icon_card icon_size_40 icon_save_normal':
+      // console.log('save normal!');
+
+      const origId = event.target.closest('.card').id;
+
+      let cardObject = newsCards.find(item => item.articleId == origId);
+
+      // const newId =
+      article.save(cardObject, event.target, newsCards);
+
+      console.log(newsCards);
+/*
+      cardObject.articleId = newId;
+
+      const nCards = newsCards.map(item => {
+        if (item.id === origId) return cardObject;
+        else return item;
+      });
+
+      console.log(newId);
+      console.log(nCards);
+
+*/
+      // event.target.classList.remove('icon_save_normal');
+      // event.target.classList.add('icon_save_marked');
+
+      break;
+    case 'icon icon_card icon_size_40 icon_save_marked':
+        // console.log('save marked!');
+
+      // article.
+
+        event.target.classList.remove('icon_save_marked');
+      event.target.classList.add('icon_save_normal');
+      break;
+  }
+
+  console.log(event.target.closest('.card').id);
+  //  console.log(event.target.className);
+
+
 });
 
 menu.enableNewsSearchButton();
@@ -215,42 +292,11 @@ TextField.create({
   });
 */
 
-/*
-  const objectUserInfo = new UserInfo(userInfoParams);
 
-  api.getUserInfo()
-    .then((result) => {
-      objectUserInfo.initUserInfo(result);
-    })
-    .catch((err) => {
-      console.log('ошибка передачи данных с сервера: ' + err);
-    });
-
-  const cardList = new CardList(placesList, popupImage);
-
-  api.getInitialCards()
-    .then((result) => {
-      cardList.render(result);
-    })
-    .catch((err) => {
-      console.log('ошибка передачи данных с сервера: ' + err);
-    });
-
-  const popupCard = new Card();
-  const popupValidator = new FormValidator(document.forms.new);
-
-  const popup = new Popup(cardList, popupCard, popupValidator, popupParams, api);
-  popup.setListeners();
-
-  const popupProfileValidator = new FormValidator(document.forms.profile);
-
-  const popupProfile = new PopupProfile(popupProfileValidator, objectUserInfo, popupProfileParams, api);
-  popupProfile.setListeners();
-*/
 
   const popupSignInValidator = new FormValidator(document.forms.signin);
 
-  const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi, user, menu);
+  const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi, menu);
   popupSignIn.setListeners();
 
   const popupSignUpValidator = new FormValidator(document.forms.signup);

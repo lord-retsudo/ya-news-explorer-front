@@ -5,7 +5,7 @@
   grid-template-columns: minmax(224px, 400px) minmax(224px, 400px) minmax(224px, 400px);
   grid-column-gap: 16px;
   grid-row-gap: 32px;
-  margin: 0 auto 0 auto;
+  margin: 30px auto 0 auto;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

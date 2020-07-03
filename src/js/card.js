@@ -1,15 +1,131 @@
 import '../images/placeholder.png';
+import User from '../js/user/user';
 
 export default class Card {
-    constructor () {
+    constructor (backendApiClient) {
+      this.api = backendApiClient;
     }
 
-    save (event) {
+    save (card, object, cards) {
         // event.target.classList.toggle('place-card__like-icon_liked');
+
+          if (User.getName() === null) {
+            return;
+          }
+
+
+          this.api
+              .createArticle({
+                keyword: card.keyword,
+                title: card.title,
+                text: card.text,
+                date: card.date,
+                source: card.source,
+                link: card.link,
+                image: card.image,
+              }, User.getToken())
+              .then((response) => {
+
+                cards = cards.map(item => {
+                  if (item.articleId === card.articleId) {
+                    card.articleId = response.id;
+                    return card;
+                  }
+                  else return item;
+                });
+
+                object.classList.remove('icon_save_normal');
+                object.classList.add('icon_save_marked');
+                object.closest('.card').id = response.id;
+
+                console.log(response.id);
+                console.log(cards);
+                alert('Статья ' + response.id + ' была сохранена!');
+          /*
+                saveBtn.ClassList.remove('icon_save_normal');
+                saveBtn.ClassList.remove('icon_save_hover');
+                saveBtn.ClassList.add('icon_save_marked');
+                this.HtmlElement.setAttribute('news-card', response.id);
+                this.fireEvent('saveitem');
+          */
+              })
+              .catch((error) => {
+
+                console.log(error);
+                /*
+                error.Response.json().then((errorBody) => {
+                  MsgBox.error('Ошибка при сохранении статьи', errorBody.message.replace(/&quot;/g, '"'));
+                });
+                */
+              });
+
+              // return object.closest('.card').id;
+
+/*
+          if (this.HtmlElement.hasAttribute('news-card')) {
+            backendApiClient
+              .removeArticle(this.HtmlElement.getAttribute('news-card'), User.getToken())
+              .then(() => {
+                MsgBox.msg('Удаление статьи', 'Статья была удалена!');
+                saveBtn.ClassList.add('icon_save_normal');
+                saveBtn.ClassList.remove('icon_save_hover');
+                saveBtn.ClassList.remove('icon_save_marked');
+                this.HtmlElement.removeAttribute('news-card');
+                this.fireEvent('deleteitem');
+              })
+              .catch((error) => {
+                error.Response.json().then((errorBody) => {
+                  MsgBox.error('Ошибка при удалении  статьи', errorBody.message.replace(/&quot;/g, '"'));
+                });
+              });
+          } else {
+            backendApiClient
+              .createArticle({
+                keyword: this._keyword,
+                title: this._title,
+                text: this._contentText,
+                date: this._createdAt,
+                source: this._sourceLabel,
+                link: this._sourceLink,
+                image: this._imageLink,
+              }, User.getToken())
+              .then((response) => {
+                MsgBox.msg('Сохранение статьи', 'Статья была сохранена!');
+                saveBtn.ClassList.remove('icon_save_normal');
+                saveBtn.ClassList.remove('icon_save_hover');
+                saveBtn.ClassList.add('icon_save_marked');
+                this.HtmlElement.setAttribute('news-card', response.id);
+                this.fireEvent('saveitem');
+              })
+              .catch((error) => {
+                error.Response.json().then((errorBody) => {
+                  MsgBox.error('Ошибка при сохранении статьи', errorBody.message.replace(/&quot;/g, '"'));
+                });
+              });
+          }
+        });
+
+       */
+
     }
 
     remove (event, cardlist) {
         // cardlist.removeChild(event.target.closest('.place-card'));
+/*
+        delBtn.on('click', () => {
+          backendApiClient
+            .removeArticle(this.HtmlElement.getAttribute('news-card'), User.getToken())
+            .then(() => {
+              this.destroy(true);
+              this.fireEvent('deleteitem');
+            })
+            .catch((error) => {
+              error.Response.json().then((errorBody) => {
+                MsgBox.error('Ошибка при удалении  статьи', errorBody.message.replace(/&quot;/g, '"'));
+              });
+            });
+        });
+*/
     }
 
     create (props) {
