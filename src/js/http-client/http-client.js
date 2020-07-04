@@ -194,7 +194,6 @@ export default class HttpClient {
     params,
   ) {
     const reqHeaders = { ...this._headers, ...headers };
-    // Object.assign(this._headers, headers || {});
     const reqMode = mode || this._mode;
     const reqCache = cache || this._cache;
     const reqRedirect = redirect || this._redirect;

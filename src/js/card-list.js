@@ -1,29 +1,24 @@
-import Card from './card.js';
+import Card from './card';
 
 export default class CardList extends Card {
-    constructor (container) {
-        super();
-        this.container = container;
-    }
+  constructor(container) {
+    super();
+    this.container = container;
+  }
 
-    addCard (cardHtml){
+  addCard(cardHtml) {
+    this.container.insertAdjacentHTML('beforeEnd', cardHtml);
+  }
 
-      this.container.insertAdjacentHTML('beforeEnd', cardHtml);
-      /*
-        this.container.appendChild(card).addEventListener('click', function(event){
+  render(newsCards) {
+    newsCards.forEach((article) => {
+      this.addCard(this.create(article));
+    });
+  }
 
-            if (event.target.classList.contains('place-card__like-icon')) this.like(event);
-            else if (event.target.className === 'place-card__delete-icon') this.remove(event, this.container);
-            else if (event.target.className === 'place-card__image') this.popupImage.open(event.target);
-        }.bind(this));
-      */
-    }
-
-    render (newsCards){
-
-      newsCards.forEach((article) => {
-            this.addCard(this.create(article));
-          });
-    }
+  renderSaved(newsCards) {
+    newsCards.forEach((article) => {
+      this.addCard(this.createSaved(article));
+    });
+  }
 }
-

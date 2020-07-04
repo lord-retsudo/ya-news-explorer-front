@@ -16,8 +16,6 @@ export default class PopupSuccess {
       this.close();
       this.popupSwitch.classList.add('dialog_is-opened');
     }.bind(this));
-
-
   }
 
   open() {
@@ -27,5 +25,4 @@ export default class PopupSuccess {
   close() {
     this.popup.classList.remove('dialog_is-opened');
   }
-
 }

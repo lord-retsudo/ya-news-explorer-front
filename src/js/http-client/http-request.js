@@ -1,4 +1,3 @@
-
 export default class HttpRequest {
   static get METHOD_GET() {
     return 'GET';

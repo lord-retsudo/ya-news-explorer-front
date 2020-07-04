@@ -20,11 +20,8 @@ export default class PopupSignUp {
 
   setListeners() {
     this.openPopupButton.addEventListener('click', function () {
-
       this.open();
-      // this.validator.setSubmitButtonState(this.submitPopupButton, true);
     }.bind(this));
-
 
     this.closePopupButton.addEventListener('click', function () {
       this.close();
@@ -37,9 +34,6 @@ export default class PopupSignUp {
 
     this.formPopup.addEventListener('submit', function (event) {
       event.preventDefault();
-      // this.close();
-
-
       this.api.signup(this.formPopup.elements.names.value, this.formPopup.elements.email.value, this.formPopup.elements.password.value)
         .then(() => {
           console.log("Signup success!");
@@ -47,33 +41,9 @@ export default class PopupSignUp {
           this.popupSuccess.classList.add('dialog_is-opened');
         })
         .catch((error) => {
-
-          console.log("Signup error!");
-
           this.message.classList.remove('form__invalid-message_visibility_hidden');
           this.message.classList.add('form__invalid-message_visibility_shown');
-/*
-          if (error instanceof HttpRequestError) {
-            MsgBox.error('Ошибка регистрации');
-          } else {
-            error.Response.json().then((errorBody) => {
-              Dialog.show('dialog_error', errorBody.message.replace(/&quot;/g, '"'));
-            });
-          }
-          */
         });
-
-/*
-      this.api.sendUserInfo(this.formProfile.elements.name.value, this.formProfile.elements.about.value)
-        .then((result) => {
-          this.userInfo.updateUserInfo(result);
-          this.formProfile.reset();
-          this.close();
-        })
-        .catch((err) => {
-          console.log('ошибка передачи данных на сервер: ' + err);
-        });
-*/
     }.bind(this));
   }
 

@@ -7,7 +7,6 @@
   <meta name="description" content="Диплом яндекс">
   <title>Главная</title>
   <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
-  <!-- <link rel="stylesheet" type="text/css" href="./styles.css">  -->
   <link rel="icon" type="image/png" href="images/favicon.png" />
 </head>
 <body>
@@ -43,7 +42,7 @@
           </button>
         </li>
       </ul>
-<!--
+
       <ul id="mobileMenu" class="header__mobile-menu nav nav_vert nav_position_absolute">
         <li class="nav__item nav__item_style_light"><a href="index.html">Главная</a></li>
         <li class="nav__item nav__item_style_light" id="mobileMenu_articlesMenuItem"><a href="articles.html">Сохраненные статьи</a></li>
@@ -54,10 +53,8 @@
           </button>
         </li>
       </ul>
--->
+
     </nav>
-
-
 
     <div class="header__content">
       <h1 class="header__title">
@@ -106,83 +103,6 @@
     <h6 class="loading__label">Идет поиск новостей...</h6>
   </section>
 
-  <!-- Search Result Logged-In example Section
-  <section id="searchResult" class="search-result">
-    <div class="search-result__container">
-      <h3>Результаты поиска</h3>
-      <div id="cardsGrid">
-        <ul id="cards" class="search-result__grid">
-          <li>
-            <div class="card card_grow card_dir_ver" id="card1">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
-              </span>
-              <img src="<%=require('./images/card1.png').default%>" alt="card1" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                  <div class="search-result__card-created">
-                    2 августа, 2019
-                  </div>
-                  <h4 class="search-result__card-title">Национальное достояние – парки</h4>
-                  <p class="search-result__card-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                  <a href="https://lenta.ru" target="_blank" class="search-result__card-source">
-                      Lenta.ru
-                  </a>
-              </div>
-
-            </div>
-          </li>
-          <li>
-            <div class="card card_grow card_dir_ver" id="card2">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_marked"></i>
-              </span>
-              <img src="<%=require('./images/card2.jpg').default%>" alt="Лесные огоньки" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                <div class="search-result__card-created">
-                  2 августа, 2019
-                </div>
-                <h4 class="search-result__card-title">Лесные огоньки: история одной фотографии</h4>
-                <p class="search-result__card-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                  из местных чудес природы.</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                  <a href="https://medusa.io" target="_blank" class="search-result__card-source">
-                      Medusa
-                  </a>
-              </div>
-
-            </div>
-          </li>
-          <li>
-            <div class="card card_grow card_dir_ver" id="card3">
-              <span class="card__header">
-                <i class="icon icon_card icon_size_40 icon_save_normal"></i>
-              </span>
-              <img src="<%=require('./images/card3.jpg').default%>" alt="Первозданная тайга" class="search-result__card-image">
-              <div class="card__body search-result__card-body">
-                <div class="search-result__card-created">
-                  2 августа, 2019
-                </div>
-                <h4 class="search-result__card-title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-                <p class="search-result__card-text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-              </div>
-              <div class="card__footer search-result__card-footer">
-                <a href="https://ria.ru" target="_blank" class="search-result__card-source">
-                      RIA
-                </a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <button class="btn btn_style_light btn_size_m btn_rad_100 btn_brd_none search-result__btn-more">Показать еще</button>
-    </div>
-  </section>
--->
-
-
   <section class="about">
     <div class="card">
       <img src="<%=require('./images/avatar.png').default%>" alt="user avatar" class="about__avatar">
@@ -203,7 +123,6 @@
       <nav class="nav footer__nav">
         <a class="nav__item nav__item_style_smoke"  id="copyright_desk" href="https://praktikum.yandex.ru/">&copy; 2020 Supersite, Powered by News API</a>
       </nav>
-
 
       <div class="footer__container">
         <nav class="nav footer__nav">
@@ -243,8 +162,6 @@
         </nav>
       </div>
     </div>
-
-
   </footer>
 
  <!-- Sign-in popup -->
@@ -331,19 +248,6 @@
     </div>
   </div>
 
-<!-- Error popup -->
-  <div id="dialog_error" class="dialog-error" data-dialog>
-    <div class="dialog dialog_style_white dialog_align_center">
-      <div class="dialog__content dialog__content_border_full">
-        <div class="dialog__header">
-          <i class="icon icon_error icon_size_32"></i>
-          <h3 class="dialog__header-title">Ошибка</h3>
-          <i class="dialog__close icon icon_size_24 icon_close_black"></i>
-        </div>
-        <div class="dialog__body"></div>
-      </div>
-    </div>
-  </div>
 
 <!-- Sign-up Success popup -->
   <div id="dialog_success" class="dialog-success" data-dialog>
@@ -367,5 +271,4 @@
 
   <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
-  <!-- <script src="./index.js"></script>  -->
 </html>
