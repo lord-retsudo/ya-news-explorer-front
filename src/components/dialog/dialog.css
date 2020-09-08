@@ -6,6 +6,7 @@
 @import '__content/dialog__content.css';
 @import '_align/dialog_align.css';
 @import '_style/dialog_style.css';
+@import '_is-opened/dialog_is-opened.css';
 
 .dialog {
   display: none;

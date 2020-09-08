@@ -9,12 +9,9 @@
   padding: 0;
   display: flex;
   flex-direction: row;
-  align-items: center;   
+  align-items: center;
 }
 
 @media (max-width: 320px) {
- /* #main_mobile {    
-    max-width: 100px;
-  }
-  */
+ 
 }
