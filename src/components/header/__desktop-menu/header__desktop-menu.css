@@ -71,13 +71,13 @@
 
 @media (max-width: 550px) {
   .header__desktop-menu {
-    /* background-color: black; */
+     /* background-color: #1A1B22; */
   }
 
-  #mob_menu  {
+/*  #mob_menu  {
     background-color: #1A1B22;
   }
-
+*/
   .header__desktop-menu {
     height: 56px;
   }

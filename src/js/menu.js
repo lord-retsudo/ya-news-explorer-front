@@ -7,6 +7,11 @@ export default class Menu {
     User.logout();
   }
 
+  static logoutMainMobile() {
+    this.switchToMobileNotLoggedMenu();
+    User.logout();
+  }
+
   static logoutArticles() {
     Page.redirect('index.html');
     User.logout();
@@ -32,6 +37,22 @@ export default class Menu {
     document.getElementById('desktopMenuNotLogged').style.display = 'flex';
 
     document.getElementById('logoutButton').removeEventListener('click', Menu.logoutMain.bind(this));
+  }
+
+  switchToMobileLoggedMenu(username) {
+    document.getElementById('mobileMenuNotLogged').style.display = 'none';
+    document.getElementById('mobileMenuLogged').style.display = 'flex';
+    document.getElementById('mobileUserName').textContent = username;
+
+    document.getElementById('logoutButtonMobile').addEventListener('click', Menu.logoutMainMobile.bind(this));
+  }
+
+  switchToMobileNotLoggedMenu () {
+    document.getElementById('mobileMenuLogged').style.display = 'none';
+    document.getElementById('mobileUserName').textContent = '';
+    document.getElementById('mobileMenuNotLogged').style.display = 'flex';
+
+    document.getElementById('logoutButtonMobile').removeEventListener('click', Menu.logoutMainMobile.bind(this));
   }
 
   setUserName(username) {

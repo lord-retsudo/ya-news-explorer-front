@@ -24,6 +24,13 @@
             <i class="icon icon_size_24"></i>
           </button>
         </li>
+      <!--
+        <li id="menuCloseButtonNotLogged" class="nav__item">
+          <button class="btn_brd_none">
+            <i class="icon icon_size_24 icon_close_menu"></i>
+          </button>
+        </li>
+      -->
       </ul>
 
       <ul id="desktopMenuLogged" class="header__desktop-menu nav header__desktop-menu_separator_light">
@@ -43,15 +50,23 @@
         </li>
       </ul>
 
-      <ul id="mobileMenu" class="header__mobile-menu nav nav_vert nav_position_absolute">
+      <ul id="mobileMenuLogged" class="header__mobile-menu nav nav_vert nav_position_absolute">
         <li class="nav__item nav__item_style_light"><a href="index.html">Главная</a></li>
         <li class="nav__item nav__item_style_light" id="mobileMenu_articlesMenuItem"><a href="articles.html">Сохраненные статьи</a></li>
         <li id="mobileloginMenuItem" style="width:0px;height:0px;"></li>
         <li id="mobilelogoutMenuItem" class="nav__item nav__item_style_light">
-          <button class="btn btn_rad_80 btn_brd_1 btn_style_snow btn_size_s btn_transparent">
-            <span name="icon-button-text">&nbsp;</span><i class="icon icon_size_24 icon_logout_white"></i>
+          <button id="logoutButtonMobile" class="btn btn_rad_80 btn_brd_1 btn_style_snow btn_size_s btn_transparent">
+            <span id="mobileUserName">&nbsp;</span><i class="icon icon_size_24 icon_logout_white"></i>
           </button>
         </li>
+      </ul>
+
+      <ul id="mobileMenuNotLogged" class="header__mobile-menu nav nav_vert nav_position_absolute">
+        <li class="nav__item nav__item_style_light"><a href="index.html">Главная</a></li>
+        <li class="nav__item">
+          <button id="authButtonMobile" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_snow">Авторизоваться</button>
+        </li>
+        <li id="mobileloginMenuItem" style="width:0px;height:0px;"></li>
       </ul>
 
     </nav>

@@ -69,6 +69,8 @@ const menu = new Menu();
 const cardsContainer = document.getElementById('cards');
 const cardsList = new CardList(cardsContainer);
 const article = new Card(mainApi);
+const mobileMenuNotLogged = document.getElementById('mobileMenuNotLogged');
+const headerMenu = document.querySelector(".header__desktop-menu");
 let newsCards = [];
 let counter = 0;
 
@@ -177,23 +179,37 @@ document.getElementById('cards').addEventListener('mouseout', function () {
 
 });
 
+document.querySelector(".header__mobile-toggle").addEventListener('click', function () {
+
+  if(mobileMenuNotLogged.style.display == 'flex'){
+    mobileMenuNotLogged.style.display = 'none';
+    headerMenu.style.backgroundColor = 'transparent';
+  }
+  else {
+    mobileMenuNotLogged.style.display = 'flex';
+    headerMenu.style.backgroundColor = '#1A1B22';
+  }
+
+  // console.log(mobileMenuNotLogged.style.display);
+});
+
 menu.enableNewsSearchButton();
 
 const userName = User.getName();
 
 if(userName) menu.switchToLoggedMenu(userName);
 
-  const popupSignInValidator = new FormValidator(document.forms.signin);
+const popupSignInValidator = new FormValidator(document.forms.signin);
 
-  const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi, menu);
-  popupSignIn.setListeners();
+const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi, menu);
+popupSignIn.setListeners();
 
-  const popupSignUpValidator = new FormValidator(document.forms.signup);
+const popupSignUpValidator = new FormValidator(document.forms.signup);
 
-  const popupSignUp = new PopupSignUp(popupSignUpValidator, popupSignUpParams, mainApi);
-  popupSignUp.setListeners();
+const popupSignUp = new PopupSignUp(popupSignUpValidator, popupSignUpParams, mainApi);
+popupSignUp.setListeners();
 
-  const popupSuccess = new PopupSuccess(popupSuccessParams);
-  popupSuccess.setListeners();
+const popupSuccess = new PopupSuccess(popupSuccessParams);
+popupSuccess.setListeners();
 
 })();
