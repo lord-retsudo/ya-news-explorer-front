@@ -5,7 +5,9 @@ export default class PopupSignIn {
 
     this.popup = popupParams.popupSignIn;
     this.formPopup = popupParams.formSignIn;
+    this.mobileMenuLogged = popupParams.mobileMenuLogged;
     this.openPopupButton = popupParams.openSignInButton;
+    this.openPopupButtonMobile = popupParams.openSignInButtonMobile;
     this.closePopupButton = popupParams.closeSignInButton;
     this.submitPopupButton = popupParams.submitSignInButton;
     this.switchPopupButton = popupParams.switchSignUpButton;
@@ -22,6 +24,10 @@ export default class PopupSignIn {
   setListeners() {
 
     this.openPopupButton.addEventListener('click', function () {
+      this.open();
+    }.bind(this));
+
+    this.openPopupButtonMobile.addEventListener('click', function () {
       this.open();
     }.bind(this));
 
@@ -44,6 +50,8 @@ export default class PopupSignIn {
             this.formPopup.reset();
             this.close();
             this.menu.switchToLoggedMenu(User.getName());
+            this.menu.switchToMobileLoggedMenu(User.getName());
+            this.mobileMenuLogged.style.display = 'none';
           });
         })
         .catch((error) => {

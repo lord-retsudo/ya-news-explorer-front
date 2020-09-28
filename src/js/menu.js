@@ -4,11 +4,9 @@ import Page from './util/page';
 export default class Menu {
   static logoutMain() {
     this.switchToNotLoggedMenu();
-    User.logout();
-  }
-
-  static logoutMainMobile() {
     this.switchToMobileNotLoggedMenu();
+    document.getElementById('mobileMenuNotLogged').style.display = 'none';
+    desktopMenuLogged.style.backgroundColor = 'transparent';
     User.logout();
   }
 
@@ -40,11 +38,12 @@ export default class Menu {
   }
 
   switchToMobileLoggedMenu(username) {
+    // console.log(username);
     document.getElementById('mobileMenuNotLogged').style.display = 'none';
     document.getElementById('mobileMenuLogged').style.display = 'flex';
     document.getElementById('mobileUserName').textContent = username;
-
-    document.getElementById('logoutButtonMobile').addEventListener('click', Menu.logoutMainMobile.bind(this));
+    
+    document.getElementById('logoutButtonMobile').addEventListener('click', Menu.logoutMain.bind(this));
   }
 
   switchToMobileNotLoggedMenu () {
@@ -52,7 +51,7 @@ export default class Menu {
     document.getElementById('mobileUserName').textContent = '';
     document.getElementById('mobileMenuNotLogged').style.display = 'flex';
 
-    document.getElementById('logoutButtonMobile').removeEventListener('click', Menu.logoutMainMobile.bind(this));
+    document.getElementById('logoutButtonMobile').removeEventListener('click', Menu.logoutMain.bind(this));
   }
 
   setUserName(username) {
