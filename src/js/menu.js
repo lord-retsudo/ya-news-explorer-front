@@ -42,7 +42,7 @@ export default class Menu {
     document.getElementById('mobileMenuNotLogged').style.display = 'none';
     document.getElementById('mobileMenuLogged').style.display = 'flex';
     document.getElementById('mobileUserName').textContent = username;
-    
+
     document.getElementById('logoutButtonMobile').addEventListener('click', Menu.logoutMain.bind(this));
   }
 
@@ -56,7 +56,9 @@ export default class Menu {
 
   setUserName(username) {
     document.getElementById('desktopUserName').textContent = username;
+    document.getElementById('mobileUserName').textContent = username;
     document.getElementById('logoutButton').addEventListener('click', Menu.logoutArticles.bind(this));
+    document.getElementById('logoutButtonMobile').addEventListener('click', Menu.logoutArticles.bind(this));
   }
 
   disableNewsSearchButton() {
