@@ -21,6 +21,43 @@ export default class Menu {
     }
   }
 
+  hideMobileMenu() {
+
+    const mobileMenuLogged = document.getElementById('mobileMenuLogged');
+    const desktopMenu = document.getElementById('desktopMenu');
+    const logoMenuItem = document.getElementById('logoMenuItem');
+    const menuToggleIcon = document.getElementById('menuToggleIcon');
+
+    mobileMenuLogged.style.display = 'none';
+    desktopMenu.style.backgroundColor = 'transparent';
+
+    logoMenuItem.classList.remove('nav__item_style_light');
+    logoMenuItem.classList.add('nav__item_style_dark');
+
+    desktopMenu.classList.remove('header__desktop-menu_separator_light');
+    desktopMenu.classList.add('header__desktop-menu_separator_dark');
+    menuToggleIcon.classList.remove('icon_menu_white');
+    menuToggleIcon.classList.add('icon_menu_black');
+  }
+
+  showMobileMenu() {
+
+    const mobileMenuLogged = document.getElementById('mobileMenuLogged');
+    const desktopMenu = document.getElementById('desktopMenu');
+    const logoMenuItem = document.getElementById('logoMenuItem');
+    const menuToggleIcon = document.getElementById('menuToggleIcon');
+
+    mobileMenuLogged.style.display = 'flex';
+    desktopMenu.style.backgroundColor = '#1A1B22';
+    logoMenuItem.classList.remove('nav__item_style_dark');
+    logoMenuItem.classList.add('nav__item_style_light');
+
+    desktopMenu.classList.remove('header__desktop-menu_separator_dark');
+    desktopMenu.classList.add('header__desktop-menu_separator_light');
+    menuToggleIcon.classList.remove('icon_menu_black');
+    menuToggleIcon.classList.add('icon_menu_white');
+  }
+
   switchToLoggedMenu(username) {
     document.getElementById('desktopMenuNotLogged').style.display = 'none';
     document.getElementById('desktopMenuLogged').style.display = 'flex';
