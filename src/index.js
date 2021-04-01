@@ -19,10 +19,18 @@ import Card from "./js/card.js"
 import CardList from './js/card-list';
 
 (function () {
+
+  const mobileMenuNotLogged = document.getElementById('mobileMenuNotLogged');
+  const mobileMenuLogged = document.getElementById('mobileMenuLogged');
+  const desktopMenuNotLogged = document.getElementById('desktopMenuNotLogged');
+  const desktopMenuLogged = document.getElementById('desktopMenuLogged');
+
   const popupSignInParams = {
     popupSignIn: document.querySelector('#dialog_signin_block'),
     formSignIn: document.forms.signin,
-    openSignInButton: document.querySelector('#authButton'),
+    mobileMenuLogged: mobileMenuLogged,
+    openSignInButton: document.querySelector("#authButton"),
+    openSignInButtonMobile: document.querySelector("#authButtonMobile"),
     closeSignInButton: document.querySelector('#signin_close'),
     submitSignInButton: document.querySelector('#submit-signin'),
     switchSignUpButton: document.querySelector('#signupButton'),
@@ -69,6 +77,7 @@ const menu = new Menu();
 const cardsContainer = document.getElementById('cards');
 const cardsList = new CardList(cardsContainer);
 const article = new Card(mainApi);
+
 let newsCards = [];
 let counter = 0;
 
@@ -177,23 +186,59 @@ document.getElementById('cards').addEventListener('mouseout', function () {
 
 });
 
+document.getElementById('menuToggleButtonNotLogged').addEventListener('click', function () {
+
+  if(mobileMenuNotLogged.style.display == 'flex'){
+    mobileMenuNotLogged.style.display = 'none';
+    desktopMenuNotLogged.style.backgroundColor = 'transparent';
+  }
+  else {
+    mobileMenuNotLogged.style.display = 'flex';
+    desktopMenuNotLogged.style.backgroundColor = '#1A1B22';
+  }  
+});
+
+document.getElementById('menuToggleButtonLogged').addEventListener('click', function () {
+
+  if(mobileMenuLogged.style.display == 'flex'){
+    mobileMenuLogged.style.display = 'none';
+    desktopMenuLogged.style.backgroundColor = 'transparent';
+  }
+  else {
+    mobileMenuLogged.style.display = 'flex';
+    desktopMenuLogged.style.backgroundColor = '#1A1B22';
+  }  
+});
+
+window.addEventListener('resize', function () {
+  mobileMenuNotLogged.style.display = 'none';
+  mobileMenuLogged.style.display = 'none';
+  desktopMenuNotLogged.style.backgroundColor = 'transparent';
+  desktopMenuLogged.style.backgroundColor = 'transparent';
+});
+
+
 menu.enableNewsSearchButton();
 
 const userName = User.getName();
 
-if(userName) menu.switchToLoggedMenu(userName);
+if(userName) {
+  menu.switchToLoggedMenu(userName);
+  menu.switchToMobileLoggedMenu(userName);
+  mobileMenuLogged.style.display = 'none';
+}
 
-  const popupSignInValidator = new FormValidator(document.forms.signin);
+const popupSignInValidator = new FormValidator(document.forms.signin);
 
-  const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi, menu);
-  popupSignIn.setListeners();
+const popupSignIn = new PopupSignIn(popupSignInValidator, popupSignInParams, mainApi, menu);
+popupSignIn.setListeners();
 
-  const popupSignUpValidator = new FormValidator(document.forms.signup);
+const popupSignUpValidator = new FormValidator(document.forms.signup);
 
-  const popupSignUp = new PopupSignUp(popupSignUpValidator, popupSignUpParams, mainApi);
-  popupSignUp.setListeners();
+const popupSignUp = new PopupSignUp(popupSignUpValidator, popupSignUpParams, mainApi);
+popupSignUp.setListeners();
 
-  const popupSuccess = new PopupSuccess(popupSuccessParams);
-  popupSuccess.setListeners();
+const popupSuccess = new PopupSuccess(popupSuccessParams);
+popupSuccess.setListeners();
 
 })();

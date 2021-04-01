@@ -4,6 +4,7 @@
 .header__desktop-menu {
   vertical-align: middle;
   height: 80px;
+
 }
 
 .header__desktop-menu > .nav__item {
@@ -26,8 +27,17 @@
 @media (min-width: 551px) and (max-width: 768px) {
   .header__desktop-menu {
     height: 66px;
+    background-color: transparent;
   }
 
+  .header__desktop-menu.header__desktop-menu_bg-color_dark {
+    background-color: transparent;
+  }
+
+  .header__desktop-menu.header__desktop-menu_bg-color_light {
+    background-color: transparent;
+  }
+  
   .header__desktop-menu > .nav__item {
     margin-right: 16px;
   }
@@ -71,13 +81,13 @@
 
 @media (max-width: 550px) {
   .header__desktop-menu {
-    /* background-color: black; */
+     /* background-color: #1A1B22; */
   }
 
-  #mob_menu  {
+/*  #mob_menu  {
     background-color: #1A1B22;
   }
-
+*/
   .header__desktop-menu {
     height: 56px;
   }

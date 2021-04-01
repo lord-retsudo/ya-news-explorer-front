@@ -109,5 +109,16 @@ document.getElementById('cards').addEventListener('click', function() {
   }
 });
 
+document.getElementById('menuToggleButton').addEventListener('click', function () {
+
+  if(mobileMenuLogged.style.display == 'flex') menu.hideMobileMenu();
+  else menu.showMobileMenu();
+});
+
+window.addEventListener('resize', function () {
+
+  menu.hideMobileMenu();
+});
+
 refresh();
 })();

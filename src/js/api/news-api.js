@@ -31,8 +31,8 @@ export default class NewsApiClient {
   }
 
   static get NEWSAPI_URL_V2() {
-//    return 'https://newsapi.org/v2';
-    return 'https://praktikum.tk/news/v2';
+    return 'https://nomoreparties.co/news/v2';
+//    return 'https://praktikum.tk/news/v2';
   }
 
   search(searchText, language, fromDate, toDate) {

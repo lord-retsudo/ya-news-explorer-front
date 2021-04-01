@@ -13,6 +13,7 @@
   <header class="header">
 
     <nav id="mainMenuDesktop">
+
       <ul id="desktopMenu" class="header__desktop-menu nav header__desktop-menu_separator_dark">
         <li class="logo logo_light nav__item nav__item_style_dark" id="logoMenuItem"><a href="index.html">NewsExplorer</a></li>
         <li class="nav__item_pull-right nav__item nav__item_style_dark" id="homeMenuItem"><a href="index.html">Главная</a></li>
@@ -24,11 +25,42 @@
           </button>
         </li>
         <li id="menuToggleButton" class="header__mobile-toggle nav__item">
-          <button class="btn_brd_none icon_menu_black">
+          <button id="menuToggleIcon" class="btn_brd_none icon_menu_black">
             <i class="icon icon_size_24"></i>
           </button>
         </li>
       </ul>
+
+<!--
+     <ul id="desktopMenuLogged" class="header__desktop-menu nav header__desktop-menu_separator_light">
+        <li class="logo logo_light nav__item nav__item_style_light"><a href="index.html">NewsExplorer</a></li>
+        <li class="nav__item_selected nav__item_pull-right nav__item nav__item_style_light"><a href="#">Главная</a></li>
+        <li class="nav__item_style_smoke nav__item" id="articlesMenuItem"><a href="articles.html">Сохраненные статьи</a></li>
+        <span id="loginMenuItem" style="width:0px;height:0px;"></span>
+        <li id="logoutMenuItem" class="nav__item">
+          <button id="logoutButton" class="btn btn_rad_80 btn_brd_1 btn_size_s btn_transparent btn_style_snow">
+            <span id="desktopUserName">&nbsp;</span><i class="icon icon_size_24 icon_logout_white"></i>
+          </button>
+        </li>
+        <li id="menuToggleButtonLogged" class="header__mobile-toggle nav__item">
+          <button class="btn_brd_none icon_menu_white">
+            <i class="icon icon_size_24"></i>
+          </button>
+        </li>
+      </ul>
+    -->
+      <ul id="mobileMenuLogged" class="header__mobile-menu nav nav_vert nav_position_absolute">
+        <li class="nav__item nav__item_style_light"><a href="index.html">Главная</a></li>
+        <li class="nav__item nav__item_style_light" id="mobileMenu_articlesMenuItem"><a href="articles.html">Сохраненные статьи</a></li>
+        <li id="mobileloginMenuItem" style="width:0px;height:0px;"></li>
+        <li id="mobilelogoutMenuItem" class="nav__item nav__item_style_light">
+          <button id="logoutButtonMobile" class="btn btn_rad_80 btn_brd_1 btn_style_snow btn_size_s btn_transparent">
+            <span id="mobileUserName">&nbsp;</span><i class="icon icon_size_24 icon_logout_white"></i>
+          </button>
+        </li>
+      </ul>
+
+
     </nav>
 
   </header>
@@ -110,7 +142,7 @@
     </div>
 
   </footer>
-  
+
   <script src="<%= htmlWebpackPlugin.files.chunks.articles.entry %>"></script>
 </body>
 </html>
